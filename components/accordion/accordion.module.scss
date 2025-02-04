@@ -1,0 +1,80 @@
+.uiAccordion {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    width: 100%;
+
+    details {
+        padding: 2.75rem 2.75rem 2.75rem 0;
+
+        &:first-child {
+            padding-top: .875rem;
+        }
+
+        & > summary {
+            position: relative;
+            font-size: 1.5rem;
+            line-height: 1.125em;
+            /* TODO color*/
+            color: var(--color-heading);
+            font-weight: 500;
+            cursor: pointer;
+
+            &::marker,
+            &::-webkit-details-marker {
+                display: none;
+                content: '';
+            }
+
+            &:before,
+            &:after {
+                position: absolute;
+                display: block;
+                content: '';
+            }
+
+            &:before {
+                width: 1rem;
+                height: 2px;
+                top: .75rem;
+                right: 0;
+                background-color: var(--color-heading);
+            }
+
+            &:after {
+                width: 2px;
+                height: 1rem;
+                top: calc(.25rem + 1px);
+                right: calc(0.5rem - 1px);
+                background-color: var(--color-heading);
+            }
+        }
+
+        & > p {
+            margin: 1rem 0 0 0;
+            font-size: var(--font-size-default);
+            line-height: 1.5em;
+            font-weight: 300;
+        }
+
+        &[open] > summary {
+            color: var(--color-text);
+
+            &:after {
+                opacity: 0;
+            }
+        }
+
+        & + details {
+            /* TODO color*/
+            border-top: 1px solid #D3D3D3;
+        }
+
+        &:hover {
+            & > summary {
+                color: var(--color-text);
+            }
+        }
+    }
+}

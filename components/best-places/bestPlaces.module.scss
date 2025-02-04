@@ -1,0 +1,14 @@
+.best {
+    padding: 11.25rem 0 11rem;
+}
+
+.slider {
+    --swiper-pagination-bullet-width: 1rem;
+    --swiper-pagination-bullet-height: 1rem;
+    --swiper-pagination-bullet-inactive-color: #D3CFCF;
+    --swiper-pagination-color: var(--color-accent-2);
+    --swiper-pagination-bullet-inactive-opacity: 1;
+
+    margin-top: 3.5rem;
+    padding-bottom: 7rem;
+}

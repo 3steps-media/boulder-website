@@ -1,0 +1,24 @@
+.faq {
+    padding: 8.5rem 0;
+
+    .inner {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 4rem;
+    }
+
+    hgroup {
+        max-width: 27rem;
+
+        h2 {
+            flex: 1;
+            text-wrap: balance;
+        }
+    }
+
+    .accordion {
+        max-width: 50rem;
+    }
+}

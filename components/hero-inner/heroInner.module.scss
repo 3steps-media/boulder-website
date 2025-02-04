@@ -1,0 +1,32 @@
+.hero {
+    padding: 12rem 0 7.5rem;
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    &.heroInner {
+        text-align: center;
+    }
+
+    .content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 3rem;
+    }
+
+    h1 {
+        max-width: 50rem;
+    }
+
+    p {
+        margin: -1.75rem 0 0;
+        font-size: 1.25rem;
+        line-height: 1.6em;
+        letter-spacing: 0;
+        font-weight: 300;
+        color: var(--color-text);
+        max-width: 46rem;
+    }
+}

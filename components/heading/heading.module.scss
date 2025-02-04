@@ -1,0 +1,57 @@
+.heading {
+    position: relative;
+    z-index: 1;
+
+    h2#{&} {
+        &[data-size="lg"] {
+            font-size: 3rem;
+        }
+    }
+
+    &[data-style="accent"] {
+        span {
+            position: relative;
+            display: inline-block;
+            white-space: nowrap;
+
+            &:before {
+                display: block;
+                position: absolute;
+                content: "";
+                background-color: var(--color-accent);
+                right: 0;
+                bottom: 7px;
+                left: 0;
+                z-index: -1;
+                height: .4em;
+            }
+        }
+
+        h1#{&} {
+            span:before {
+                bottom: 0.3125rem;
+            }
+        }
+
+        h2#{&} {
+            span:before {
+                bottom: 6px;
+            }
+
+            &[data-size="lg"] {
+                span:before {
+                    height: calc(.4em + 1px);
+                }
+
+            }
+        }
+    }
+
+    &[data-style="color"] {
+        span {
+            color: var(--color-heading-span);
+        }
+    }
+
+}
+

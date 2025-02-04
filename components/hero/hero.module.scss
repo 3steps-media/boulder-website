@@ -1,0 +1,113 @@
+.hero {
+    padding: 9.25rem 0 7.5rem;
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    .content {
+        padding: 6.25rem 0 3.5rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 3rem;
+    }
+
+    h1 {
+        max-width: 46rem;
+    }
+
+    p {
+        margin: -1.75rem 0 0;
+        font-size: 1.25rem;
+        line-height: 1.6em;
+        letter-spacing: 0;
+        font-weight: 300;
+        color: var(--color-text);
+        max-width: 46rem;
+    }
+
+    .form {
+        width: 100%;
+        max-width: 46rem;
+
+        .inputGroup {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: .75rem;
+            width: 100%;
+            min-height: 5rem;
+            background-color: #ffffff;
+            border-radius: 3rem;
+            border: 1px solid #E8E8E8;
+            padding: 0.75rem;
+
+            &:focus-within {
+                border-color: transparent;
+                outline: 3px solid var(--color-accent);
+            }
+        }
+
+        .inputSearch {
+            width: 100%;
+            background-color: #ffffff;
+            border-radius: 3rem;
+            border: none;
+            box-shadow: none;
+            padding: 1.25rem 2.375rem;
+            font-size: 1rem;
+
+            &:focus {
+                outline: none;
+            }
+        }
+
+        button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            border: none;
+            box-shadow: none;
+            aspect-ratio: 1 / 1;
+            height: 3.625rem;
+
+            &.settingsButton {
+                background-color: #ffffff;
+                color: var(--color-text);
+
+                &:hover {
+                    background-color: var(--color-text);
+                    color: #ffffff;
+                }
+            }
+
+            &.submitButton {
+                background-color: var(--color-accent);
+                color: #ffffff;
+
+                &:hover {
+                    background-color: var(--color-text);
+                    color: #ffffff;
+                }
+            }
+        }
+    }
+
+    .logos {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 4rem;
+        max-width: 54.25rem;
+
+        img {
+            height: auto;
+            max-height: 100%;
+            width: auto;
+            max-width: 200px;
+        }
+    }
+}

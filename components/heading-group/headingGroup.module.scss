@@ -1,0 +1,14 @@
+.headingGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    p {
+        margin: 0;
+        font-size: 1.3125rem;
+        line-height: 1.5em;
+        font-weight: 300;
+        color: var(--color-text);
+        max-width: 45rem;
+    }
+}
