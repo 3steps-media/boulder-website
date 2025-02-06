@@ -21,7 +21,7 @@ export default function Hero({backgroundImage}: Props) {
                         as={'h1'}
                         data-style={'accent'}
                     >
-                        Finde <span>deine Boulderhalle</span> In deiner Nähe
+                        [DEV] Finde <span>deine Boulderhalle</span> In deiner Nähe
                     </Heading>
 
                     <p>Finde die besten und neuesten Boulderhallen in ganz Deutschland und in deiner Nähe auf einen
