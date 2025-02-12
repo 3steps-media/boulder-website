@@ -1,6 +1,6 @@
 import styles from './post.module.scss'
 import Link from "next/link";
-import Heading from "@/components/heading/heading";
+import {Title, Text} from "@mantine/core";
 import {PostType} from "@/interfaces/post";
 
 type PostProps = {
@@ -16,8 +16,8 @@ export default function Post(props: PostProps) {
             >
                 <Link href={`/blog/${props.data.id}`}>
                     <time dateTime={props.data.date}>{props.data.date}</time>
-                    <Heading as={'h3'}>{props.data.title}</Heading>
-                    <p>{props.data.content}</p>
+                    <Title order={3}>{props.data.title}</Title>
+                    <Text>{props.data.content}</Text>
                 </Link>
             </article>
         </>

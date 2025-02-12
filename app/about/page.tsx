@@ -1,10 +1,14 @@
 import type {Metadata} from "next";
 import HeroInner from "@/components/hero-inner/heroInner";
+import Header from "@/components/shared/header";
+import Footer from "@/components/shared/footer";
 
 export default function About() {
     return (
         <>
+            <Header/>
             <HeroInner title={'Über uns'}/>
+            <Footer/>
         </>
     )
 }

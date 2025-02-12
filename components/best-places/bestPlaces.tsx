@@ -2,8 +2,7 @@
 
 import {Swiper, SwiperSlide} from 'swiper/react';
 import {Pagination} from 'swiper/modules';
-import Container from "@/components/container";
-import Heading from "@/components/heading/heading";
+import {Container, Title} from "@mantine/core";
 import Place from "@/components/place/place";
 
 import 'swiper/css';
@@ -19,8 +18,8 @@ type Props = {
 export default function BestPlaces(props: Props) {
     return (
         <section className={styles.best}>
-            <Container>
-                <Heading>{props.heading}</Heading>
+            <Container size={'xl'}>
+                <Title order={2}>{props.heading}</Title>
             </Container>
 
             <Swiper

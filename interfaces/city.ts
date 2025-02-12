@@ -1,6 +1,6 @@
 export type CityType = {
     id: number
-    name: string;
+    title: string;
+    slug: string;
     image: string;
-    url: string;
 }

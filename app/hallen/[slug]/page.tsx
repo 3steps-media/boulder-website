@@ -1,27 +1,51 @@
-'use client'
-
 import styles from "./page.module.scss";
-import * as Icons from "react-feather"
+import {
+    IconStar,
+    IconMapPin,
+    IconBrandFacebook,
+    IconBrandX,
+    IconExternalLink,
+    IconStack2,
+    IconHash,
+    IconClock,
+    IconCheck,
+    IconMessageCircle,
+    IconChevronRight
+} from "@tabler/icons-react"
 
-import Container from "@/components/container";
+
+import {Container} from "@mantine/core";
 import Heading from "@/components/heading/heading";
 import Link from "next/link";
 import Image from "next/image";
 import Fancybox from "@/components/fancybox/Fancybox";
 import {cn} from "@/utils/Utils";
 
-export default function Halle() {
+export function generateStaticParams() {
+    return [
+        {slug: 'place-1'},
+        {slug: 'place-2'},
+        {slug: 'place-3'},
+        {slug: 'place-4'},
+        {slug: 'place-5'},
+        {slug: 'place-6'},
+        {slug: 'place-7'},
+    ]
+}
+
+export default async function Halle({params}: { params: Promise<{ slug: string }> }) {
+    const {slug} = await params
     return (
         <>
             <section className={styles.hero}>
-                <Container>
+                <Container size={'xl'}>
                     <div className={styles.inner}>
                         <div className={styles.content}>
                             <div className={styles.top}>
-                                <Heading as={'h1'}>Steinzeit Boulderhalle Göppingen (Sample Halle)</Heading>
+                                <Heading as={'h1'}>Steinzeit Boulderhalle Göppingen ({slug})</Heading>
 
                                 <div className={styles.location}>
-                                    <Icons.MapPin/>
+                                    <IconMapPin/>
                                     Eislingen/Fils
                                 </div>
 
@@ -29,37 +53,37 @@ export default function Halle() {
                                 <div className={styles.meta}>
                                     <div className={styles.rating}>
                                         5.0
-                                        <Icons.Star/>
-                                        <Icons.Star/>
-                                        <Icons.Star/>
-                                        <Icons.Star/>
-                                        <Icons.Star/>
+                                        <IconStar/>
+                                        <IconStar/>
+                                        <IconStar/>
+                                        <IconStar/>
+                                        <IconStar/>
                                     </div>
                                     <div className={styles.social}>
                                         <Link href={'https://facebook.com'} target={'_blank'} rel="noopener noreferrer">
-                                            <Icons.Facebook/>
+                                            <IconBrandFacebook/>
                                         </Link>
                                         <Link href={'#'} target={'_blank'} rel="noopener noreferrer">
-                                            <Icons.Twitter/>
+                                            <IconBrandX/>
                                         </Link>
 
                                         <Link href={'#'}>
-                                            <Icons.ExternalLink/>
+                                            <IconExternalLink/>
                                         </Link>
                                     </div>
                                 </div>
 
                                 <div className={styles.services}>
                                     <div className={styles.service}>
-                                        <Icons.Layers/>
+                                        <IconStack2/>
                                         Gruppengröße
                                     </div>
                                     <div className={styles.service}>
-                                        <Icons.Layers/>
+                                        <IconStack2/>
                                         Kletterfläche
                                     </div>
                                     <div className={styles.service}>
-                                        <Icons.Layers/>
+                                        <IconStack2/>
                                         Restaurant
                                     </div>
                                 </div>
@@ -80,11 +104,11 @@ export default function Halle() {
                             <div className={styles.bottom}>
                                 <div className={styles.achievements}>
                                     <div className={styles.item}>
-                                        <Icons.Hash/>
+                                        <IconHash/>
                                         <p>Local Hero</p>
                                     </div>
                                     <div className={styles.item}>
-                                        <Icons.Hash/>
+                                        <IconHash/>
                                         <p>Top Arbeiter</p>
                                     </div>
                                 </div>
@@ -152,7 +176,7 @@ export default function Halle() {
                         <div className={styles.items}>
                             <div className={styles.item}>
                                 <div className={styles.icon}>
-                                    <Icons.Star/>
+                                    <IconStar/>
                                 </div>
                                 <div className={styles.legend}>
                                     <span>2</span>
@@ -161,7 +185,7 @@ export default function Halle() {
                             </div>
                             <div className={styles.item}>
                                 <div className={styles.icon}>
-                                    <Icons.Clock/>
+                                    <IconClock/>
                                 </div>
                                 <div className={styles.legend}>
                                     <span>Heute geöffnet</span>
@@ -170,7 +194,7 @@ export default function Halle() {
                             </div>
                             <div className={styles.item}>
                                 <div className={styles.icon}>
-                                    <Icons.MapPin/>
+                                    <IconMapPin/>
                                 </div>
                                 <div className={styles.legend}>
                                     <span>Musterstraße 4</span>
@@ -190,7 +214,7 @@ export default function Halle() {
             </section>
 
             <main className={styles.main}>
-                <Container>
+                <Container size={'xl'}>
                     <div className={styles.inner}>
                         <Heading>Beschreibung</Heading>
                         <p>
@@ -211,60 +235,60 @@ export default function Halle() {
                         <Heading as={'h3'}>Beliebteste Ausstattungen</Heading>
 
                         <ul className={styles.services2}>
-                            <li><Icons.Hash/> Tanzlokal & Sauna</li>
-                            <li><Icons.Hash/> Duschen</li>
-                            <li><Icons.Hash/> Cocktailbar</li>
-                            <li><Icons.Hash/> Restaurant</li>
-                            <li><Icons.Hash/> Parkplatz</li>
-                            <li><Icons.Hash/> Barrierefreier Zugang</li>
-                            <li><Icons.Hash/> Wiener Würstchen</li>
-                            <li><Icons.Hash/> Thüringer Rostbratwurst</li>
+                            <li><IconHash/> Tanzlokal & Sauna</li>
+                            <li><IconHash/> Duschen</li>
+                            <li><IconHash/> Cocktailbar</li>
+                            <li><IconHash/> Restaurant</li>
+                            <li><IconHash/> Parkplatz</li>
+                            <li><IconHash/> Barrierefreier Zugang</li>
+                            <li><IconHash/> Wiener Würstchen</li>
+                            <li><IconHash/> Thüringer Rostbratwurst</li>
                         </ul>
 
                         <div className={styles.services3}>
                             <div>
                                 <Heading as={'h3'}>
-                                    <Icons.Hash/>
+                                    <IconHash/>
                                     Komfortabler Aufenthalt
                                 </Heading>
 
                                 <ul>
-                                    <li><Icons.Check/> Tanzlokal & Sauna</li>
-                                    <li><Icons.Check/> Duschen</li>
-                                    <li><Icons.Check/> Cocktailbar</li>
-                                    <li><Icons.Check/> Restaurant</li>
-                                    <li><Icons.Check/> Parkplatz</li>
-                                    <li><Icons.Check/> Barrierefreier Zugang</li>
-                                    <li><Icons.Check/> Wiener Würstchen</li>
-                                    <li><Icons.Check/> Thüringer Rostbratwurst</li>
+                                    <li><IconCheck/> Tanzlokal & Sauna</li>
+                                    <li><IconCheck/> Duschen</li>
+                                    <li><IconCheck/> Cocktailbar</li>
+                                    <li><IconCheck/> Restaurant</li>
+                                    <li><IconCheck/> Parkplatz</li>
+                                    <li><IconCheck/> Barrierefreier Zugang</li>
+                                    <li><IconCheck/> Wiener Würstchen</li>
+                                    <li><IconCheck/> Thüringer Rostbratwurst</li>
                                 </ul>
                             </div>
                             <div>
                                 <Heading as={'h3'}>
-                                    <Icons.Hash/>
+                                    <IconHash/>
                                     Kletterhalle
                                 </Heading>
 
                                 <ul>
-                                    <li><Icons.Check/> Tanzlokal & Sauna</li>
-                                    <li><Icons.Check/> Duschen</li>
-                                    <li><Icons.Check/> Cocktailbar</li>
-                                    <li><Icons.Check/> Restaurant</li>
+                                    <li><IconCheck/> Tanzlokal & Sauna</li>
+                                    <li><IconCheck/> Duschen</li>
+                                    <li><IconCheck/> Cocktailbar</li>
+                                    <li><IconCheck/> Restaurant</li>
                                 </ul>
                             </div>
                             <div>
                                 <Heading as={'h3'}>
-                                    <Icons.Hash/>
+                                    <IconHash/>
                                     Haustiere
                                 </Heading>
 
                                 <ul>
-                                    <li><Icons.Check/> Cocktailbar</li>
-                                    <li><Icons.Check/> Restaurant</li>
-                                    <li><Icons.Check/> Parkplatz</li>
-                                    <li><Icons.Check/> Barrierefreier Zugang</li>
-                                    <li><Icons.Check/> Wiener Würstchen</li>
-                                    <li><Icons.Check/> Thüringer Rostbratwurst</li>
+                                    <li><IconCheck/> Cocktailbar</li>
+                                    <li><IconCheck/> Restaurant</li>
+                                    <li><IconCheck/> Parkplatz</li>
+                                    <li><IconCheck/> Barrierefreier Zugang</li>
+                                    <li><IconCheck/> Wiener Würstchen</li>
+                                    <li><IconCheck/> Thüringer Rostbratwurst</li>
                                 </ul>
                             </div>
                         </div>
@@ -288,21 +312,21 @@ export default function Halle() {
                                         <span>Klettern</span>
                                         5.0
                                     </div>
-                                    <Icons.Hash/>
+                                    <IconHash/>
                                 </div>
                                 <div className={styles.ratingItem}>
                                     <div>
                                         <span>Service</span>
                                         4.9
                                     </div>
-                                    <Icons.Hash/>
+                                    <IconHash/>
                                 </div>
                                 <div className={styles.ratingItem}>
                                     <div>
                                         <span>Errichbarkeit</span>
                                         4.9
                                     </div>
-                                    <Icons.Hash/>
+                                    <IconHash/>
                                 </div>
                             </div>
 
@@ -311,11 +335,11 @@ export default function Halle() {
                         <div className={styles.comments}>
                             <div className={styles.comment}>
                                 <div className={styles.stars}>
-                                    <Icons.Star/>
-                                    <Icons.Star/>
-                                    <Icons.Star/>
-                                    <Icons.Star/>
-                                    <Icons.Star/>
+                                    <IconStar/>
+                                    <IconStar/>
+                                    <IconStar/>
+                                    <IconStar/>
+                                    <IconStar/>
                                 </div>
                                 <p>
                                     Auf einer Grundfläche von derzeit 1300 m² erwartet dich alles was dein Herz begehrt:
@@ -328,11 +352,11 @@ export default function Halle() {
                             </div>
                             <div className={styles.comment}>
                                 <div className={styles.stars}>
-                                    <Icons.Star/>
-                                    <Icons.Star/>
-                                    <Icons.Star/>
-                                    <Icons.Star/>
-                                    <Icons.Star/>
+                                    <IconStar/>
+                                    <IconStar/>
+                                    <IconStar/>
+                                    <IconStar/>
+                                    <IconStar/>
                                 </div>
                                 <p>
                                     Auf einer Grundfläche von derzeit 1300 m² erwartet dich alles was dein Herz begehrt:
@@ -345,11 +369,11 @@ export default function Halle() {
                             </div>
                             <div className={styles.comment}>
                                 <div className={styles.stars}>
-                                    <Icons.Star/>
-                                    <Icons.Star/>
-                                    <Icons.Star/>
-                                    <Icons.Star/>
-                                    <Icons.Star/>
+                                    <IconStar/>
+                                    <IconStar/>
+                                    <IconStar/>
+                                    <IconStar/>
+                                    <IconStar/>
                                 </div>
                                 <p>
                                     Auf einer Grundfläche von derzeit 1300 m² erwartet dich alles was dein Herz begehrt:
@@ -362,11 +386,11 @@ export default function Halle() {
                             </div>
                             <div className={styles.comment}>
                                 <div className={styles.stars}>
-                                    <Icons.Star/>
-                                    <Icons.Star/>
-                                    <Icons.Star/>
-                                    <Icons.Star/>
-                                    <Icons.Star/>
+                                    <IconStar/>
+                                    <IconStar/>
+                                    <IconStar/>
+                                    <IconStar/>
+                                    <IconStar/>
                                 </div>
                                 <p>
                                     Auf einer Grundfläche von derzeit 1300 m² erwartet dich alles was dein Herz begehrt:
@@ -391,75 +415,75 @@ export default function Halle() {
                                 <ul>
                                     <li>
                                         <span>
-                                            <Icons.MessageSquare/>
+                                            <IconMessageCircle/>
                                             Sind große Gruppen möglich?
                                         </span>
-                                        <Icons.ChevronRight/>
+                                        <IconChevronRight/>
                                     </li>
                                     <li>
                                         <span>
-                                            <Icons.MessageSquare/>
+                                            <IconMessageCircle/>
                                             Sind große Gruppen möglich?
                                         </span>
-                                        <Icons.ChevronRight/>
+                                        <IconChevronRight/>
                                     </li>
                                     <li>
                                         <span>
-                                            <Icons.MessageSquare/>
+                                            <IconMessageCircle/>
                                             Sind große Gruppen möglich?
                                         </span>
-                                        <Icons.ChevronRight/>
+                                        <IconChevronRight/>
                                     </li>
                                     <li>
                                         <span>
-                                            <Icons.MessageSquare/>
+                                            <IconMessageCircle/>
                                             Sind große Gruppen möglich?
                                         </span>
-                                        <Icons.ChevronRight/>
+                                        <IconChevronRight/>
                                     </li>
                                     <li>
                                         <span>
-                                            <Icons.MessageSquare/>
+                                            <IconMessageCircle/>
                                             Sind große Gruppen möglich?
                                         </span>
-                                        <Icons.ChevronRight/>
+                                        <IconChevronRight/>
                                     </li>
                                 </ul>
                                 <ul>
                                     <li>
                                         <span>
-                                            <Icons.MessageSquare/>
+                                            <IconMessageCircle/>
                                             Sind große Gruppen möglich?
                                         </span>
-                                        <Icons.ChevronRight/>
+                                        <IconChevronRight/>
                                     </li>
                                     <li>
                                         <span>
-                                            <Icons.MessageSquare/>
+                                            <IconMessageCircle/>
                                             Sind große Gruppen möglich?
                                         </span>
-                                        <Icons.ChevronRight/>
+                                        <IconChevronRight/>
                                     </li>
                                     <li>
                                         <span>
-                                            <Icons.MessageSquare/>
+                                            <IconMessageCircle/>
                                             Sind große Gruppen möglich?
                                         </span>
-                                        <Icons.ChevronRight/>
+                                        <IconChevronRight/>
                                     </li>
                                     <li>
                                         <span>
-                                            <Icons.MessageSquare/>
+                                            <IconMessageCircle/>
                                             Sind große Gruppen möglich?
                                         </span>
-                                        <Icons.ChevronRight/>
+                                        <IconChevronRight/>
                                     </li>
                                     <li>
                                         <span>
-                                            <Icons.MessageSquare/>
+                                            <IconMessageCircle/>
                                             Sind große Gruppen möglich?
                                         </span>
-                                        <Icons.ChevronRight/>
+                                        <IconChevronRight/>
                                     </li>
                                 </ul>
                             </div>
@@ -479,12 +503,12 @@ export default function Halle() {
                             <Heading>Wichtiges auf einen Blick</Heading>
                             <dl>
                                 <dt>
-                                    <Icons.Hash/>
+                                    <IconHash/>
                                     Öffnungszeiten
                                 </dt>
                                 <dd>von 09:00 bis 19:00 Uhr</dd>
                                 <dt>
-                                    <Icons.Hash/>
+                                    <IconHash/>
                                     Wichtige Informationen
                                 </dt>
                                 <dd>Auf einer Grundfläche von derzeit 1300 m² erwartet dich alles was dein Herzbegehrt:
@@ -492,32 +516,32 @@ export default function Halle() {
                                     geneigter Platte über gerade Wände, sanfte Überhänge.
                                 </dd>
                                 <dt>
-                                    <Icons.Hash/>
+                                    <IconHash/>
                                     Haustiere
                                 </dt>
                                 <dd>Keine Haustiere gestattet</dd>
                                 <dt>
-                                    <Icons.Hash/>
+                                    <IconHash/>
                                     Verpflegung
                                 </dt>
                                 <dd>Bar und Restaurant vorhanden</dd>
                                 <dt>
-                                    <Icons.Hash/>
+                                    <IconHash/>
                                     Hygiene
                                 </dt>
                                 <dd>Duschen und WC vorhanden</dd>
                                 <dt>
-                                    <Icons.Hash/>
+                                    <IconHash/>
                                     Parkmöglichkeiten
                                 </dt>
                                 <dd>Direkt vor Ort</dd>
                                 <dt>
-                                    <Icons.Hash/>
+                                    <IconHash/>
                                     Gruppengröße
                                 </dt>
                                 <dd>Maximal 50 Personen</dd>
                                 <dt>
-                                    <Icons.Hash/>
+                                    <IconHash/>
                                     Einsteigerkurse
                                 </dt>
                                 <dd>Vorhanden</dd>

@@ -1,0 +1,3 @@
+export const APP_NAME = process.env.NEXT_PUBLIC_APP_NAME || 'Boulderhallen Finden';
+export const APP_DESCRIPTION = process.env.NEXT_PUBLIC_APP_DESCRIPTION || 'Die besten Boulderhallen Deutschlands ✓ Transparente Bewertungen, Öffnungszeiten, Preise, u.v.m. ➤ Hier findest du die richtige Boulderhalle in deiner Nähe.';
+export const SERVER_URL = process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:3000';

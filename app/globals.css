@@ -1,119 +1,119 @@
-:root {
-    --color-heading: #07344f;
-    --color-heading-span: #747474;
-    --color-text: #1D1D1D;
-    --color-link: #1D1D1D;
-    --color-accent: #FFC655;
-    --color-accent-2: #6DE6C2;
-    --color-placeholder: #575757;
-    --color-ligth: #9B9B9B;
-    --container-padding: 1.5rem;
+@layer default, mantine, vendor, components, utilites;
 
-    --font-size-small: .875rem;
-    --font-size-default: 1rem;
+@import "@mantine/core/styles.layer.css";
 
-    font-size: 100%;
-    line-height: 1.5;
-    font-weight: 400;
+@layer default {
+    :root {
+        --color-heading: #07344f;
+        --color-heading-span: #747474;
+        --color-text: #1D1D1D;
+        --color-link: #1D1D1D;
+        --color-accent: #FFC655;
+        --color-accent-2: #6DE6C2;
+        --color-placeholder: #575757;
+        --color-ligth: #9B9B9B;
+        --container-padding: 1.5rem;
 
-    color: var(--color-text);
-    background-color: #F8F8F8;
+        --font-size-small: .875rem;
+        --font-size-default: 1rem;
 
-    font-synthesis: none;
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-body {
-    font-family: var(--font-inter);
-}
+        font-size: 100%;
+        line-height: 1.5;
+        font-weight: 400;
 
-* {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-}
+        color: var(--color-text);
+        background-color: #F8F8F8;
 
-a {
-    font-weight: 500;
-    color: var(--color-link);
-    text-decoration: inherit;
+        font-synthesis: none;
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
 
-    &:hover {
-        color: var(--color-accent);
+    .font-inter {
+        font-family: var(--font-inter, sans-serif);
+        font-optical-sizing: auto;
+        font-style: normal;
+    }
+
+    .font-space-grotesk {
+        font-family: var(--font-space-grotesk, serif);
+        font-optical-sizing: auto;
+        font-style: normal;
+    }
+
+    input {
+        line-height: 1em;
+        color: var(--color-text);
+    }
+
+    input::placeholder {
+        color: var(--color-placeholder);
     }
 }
 
-img {
-    display: block;
-    max-width: 100%;
-}
 
-h1, h2, h3, h4, h5, h6 {
-    margin: 0;
-    color: var(--color-heading);
-    font-family: var(--font-space-grotesk);
-    font-weight: 600;
-}
-
-h1 {
-    font-size: 3.75rem;
-    line-height: 1.1em;
-}
-
-h2 {
-    font-size: 2.375rem;
-    line-height: 1.25em;
-}
-
-.font-inter {
-    font-family: var(--font-inter, sans-serif);
-    font-optical-sizing: auto;
-    font-style: normal;
-}
-
-.font-space-grotesk {
-    font-family: var(--font-space-grotesk, serif);
-    font-optical-sizing: auto;
-    font-style: normal;
-}
-
-input {
-    line-height: 1em;
-    color: var(--color-text);
-}
-
-input::placeholder {
-    color: var(--color-placeholder);
-}
-
-.container {
-    margin-inline: auto;
-    padding: 0 var(--container-padding);
-    width: 100%;
-    max-width: 98rem;
-
-    &.lg {
-        max-width: 90rem;
-    }
-
-    &.md {
-        max-width: 52.5rem;
-    }
-
-    &.sm {
-        max-width: 37.5rem;
-    }
-
-    &.xs {
-        max-width: 22.5rem;
-    }
-
-    &.fluid {
-        max-width: 100%;
+@layer vendor {
+    .swiper-slide {
+        width: fit-content !important;
     }
 }
 
-.swiper-slide {
-    width: fit-content !important;
+@layer components {
+    .heading {
+        position: relative;
+        z-index: 1;
+
+        h2& {
+            &[data-size="lg"] {
+                font-size: 3rem;
+            }
+        }
+
+        &[data-style="accent"] {
+            span {
+                position: relative;
+                display: inline-block;
+                white-space: nowrap;
+
+                &:before {
+                    display: block;
+                    position: absolute;
+                    content: "";
+                    background-color: var(--color-accent);
+                    right: 0;
+                    bottom: 7px;
+                    left: 0;
+                    z-index: -1;
+                    height: .4em;
+                }
+            }
+
+            h1& {
+                span:before {
+                    bottom: 0.3125rem;
+                }
+            }
+
+            h2& {
+                span:before {
+                    bottom: 6px;
+                }
+
+                &[data-size="lg"] {
+                    span:before {
+                        height: calc(.4em + 1px);
+                    }
+
+                }
+            }
+        }
+
+        &[data-style="color"] {
+            span {
+                color: var(--color-heading-span);
+            }
+        }
+
+    }
 }

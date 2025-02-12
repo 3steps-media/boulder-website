@@ -1,22 +1,22 @@
+import {APP_NAME} from "@/lib/constants";
 import styles from './footer.module.scss';
-import * as Icons from 'react-feather';
 
-import Container from "@/components/container";
+import {Container, Title} from "@mantine/core";
 import Link from "next/link";
 import Image from 'next/image'
-import Heading from "@/components/heading/heading";
+import {IconBrandFacebook, IconBrandInstagram, IconBrandYoutube, IconBrandX} from "@tabler/icons-react"
 
-export default function Footer() {
+export default function Index() {
     return (
         <>
             <footer className={styles.footer}>
-                <Container>
+                <Container size={'xl'}>
                     <div className={styles.footerTop}>
 
                         <Link href={'/'} className={styles.logo}>
                             <Image
-                                src='/logo.svg'
-                                alt={'Finde deine Boulderhalle In deiner Nähe'}
+                                src='/images/logo.svg'
+                                alt={APP_NAME}
                                 width={64}
                                 height={64}
                             />
@@ -28,22 +28,22 @@ export default function Footer() {
                         </p>
                         <div className={styles.social}>
                             <Link href={'https://facebook.com'} target={'_blank'} rel="noopener noreferrer">
-                                <Icons.Facebook/>
+                                <IconBrandFacebook/>
                             </Link>
                             <Link href={'#'} target={'_blank'} rel="noopener noreferrer">
-                                <Icons.Twitter/>
+                                <IconBrandX/>
                             </Link>
                             <Link href={'#'} target={'_blank'} rel="noopener noreferrer">
-                                <Icons.Instagram/>
+                                <IconBrandInstagram/>
                             </Link>
                             <Link href={'#'} target={'_blank'} rel="noopener noreferrer">
-                                <Icons.Youtube/>
+                                <IconBrandYoutube/>
                             </Link>
                         </div>
                         <div className={styles.stores}>
                             <Link href={'#'} target={'_blank'} rel="noopener noreferrer">
                                 <Image
-                                    src={'/apple-store@2x.png'}
+                                    src={'/images/apple-store@2x.png'}
                                     alt="Download from AppStore"
                                     width={142}
                                     height={41}
@@ -51,7 +51,7 @@ export default function Footer() {
                             </Link>
                             <Link href={'#'} target={'_blank'} rel="noopener noreferrer">
                                 <Image
-                                    src={'/googleplay@2x.png'}
+                                    src={'/images/googleplay@2x.png'}
                                     alt="Download from Google Play"
                                     width={142}
                                     height={41}
@@ -62,7 +62,7 @@ export default function Footer() {
                     </div>
                     <div className={styles.footerBottom}>
                         <div>
-                            <Heading>Rechtliches</Heading>
+                            <Title order={2}>Rechtliches</Title>
                             <ul>
                                 <li><Link href={'#'}>Impressum</Link></li>
                                 <li><Link href={'#'}>Datenschutz</Link></li>
@@ -70,7 +70,7 @@ export default function Footer() {
                             </ul>
                         </div>
                         <div>
-                            <Heading>Rechtliches</Heading>
+                            <Title order={2}>Rechtliches</Title>
                             <ul>
                                 <li><Link href={'#'}>Impressum</Link></li>
                                 <li><Link href={'#'}>Datenschutz</Link></li>
@@ -78,7 +78,7 @@ export default function Footer() {
                             </ul>
                         </div>
                         <div>
-                            <Heading>Rechtliches</Heading>
+                            <Title order={2}>Rechtliches</Title>
                             <ul>
                                 <li><Link href={'#'}>Impressum</Link></li>
                                 <li><Link href={'#'}>Datenschutz</Link></li>
@@ -86,7 +86,7 @@ export default function Footer() {
                             </ul>
                         </div>
                         <div>
-                            <Heading>Rechtliches</Heading>
+                            <Title order={2}>Rechtliches</Title>
                             <ul>
                                 <li><Link href={'#'}>Impressum</Link></li>
                                 <li><Link href={'#'}>Datenschutz</Link></li>
@@ -94,7 +94,7 @@ export default function Footer() {
                             </ul>
                         </div>
                         <div>
-                            <Heading>Rechtliches</Heading>
+                            <Title order={2}>Rechtliches</Title>
                             <ul>
                                 <li><Link href={'#'}>Impressum</Link></li>
                                 <li><Link href={'#'}>Datenschutz</Link></li>
@@ -102,7 +102,7 @@ export default function Footer() {
                             </ul>
                         </div>
                         <div>
-                            <Heading>Rechtliches</Heading>
+                            <Title order={2}>Rechtliches</Title>
                             <ul>
                                 <li><Link href={'#'}>Impressum</Link></li>
                                 <li><Link href={'#'}>Datenschutz</Link></li>
@@ -110,7 +110,7 @@ export default function Footer() {
                             </ul>
                         </div>
                         <div>
-                            <Heading>Rechtliches</Heading>
+                            <Title order={2}>Rechtliches</Title>
                             <ul>
                                 <li><Link href={'#'}>Impressum</Link></li>
                                 <li><Link href={'#'}>Datenschutz</Link></li>
@@ -118,7 +118,7 @@ export default function Footer() {
                             </ul>
                         </div>
                         <div>
-                            <Heading>Rechtliches</Heading>
+                            <Title order={2}>Rechtliches</Title>
                             <ul>
                                 <li><Link href={'#'}>Impressum</Link></li>
                                 <li><Link href={'#'}>Datenschutz</Link></li>

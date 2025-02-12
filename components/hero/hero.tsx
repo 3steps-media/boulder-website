@@ -1,9 +1,14 @@
 import styles from './hero.module.scss';
-import * as Icons from 'react-feather';
+import {IconSearch, IconAdjustmentsHorizontal} from '@tabler/icons-react'
 
-import Container from "@/components/container";
-import Heading from "@/components/heading/heading";
 import Image, {StaticImageData} from "next/image";
+import {
+    Container,
+    Title,
+    Text
+} from "@mantine/core";
+import DemoElement from "@/components/demo/demo";
+import clsx from "clsx";
 
 type Props = {
     backgroundImage: StaticImageData;
@@ -15,53 +20,70 @@ export default function Hero({backgroundImage}: Props) {
             className={styles.hero}
             style={{backgroundImage: backgroundImage ? `url(${backgroundImage.src})` : ''}}
         >
-            <Container>
+            <Container size={'xl'}>
                 <div className={styles.content}>
-                    <Heading
-                        as={'h1'}
+                    <Title
+                        className={clsx('heading', styles.title)}
+                        order={1}
+                        textWrap="balance"
                         data-style={'accent'}
+                        c={'dark.9'}
                     >
-                        [DEV] Finde <span>deine Boulderhalle</span> In deiner Nähe
-                    </Heading>
+                        Finde <span>deine Boulderhalle</span> In deiner Nähe
+                    </Title>
 
-                    <p>Finde die besten und neuesten Boulderhallen in ganz Deutschland und in deiner Nähe auf einen
-                        Blick.</p>
+                    <Text
+                        size={'xl'}
+                        lh={'xl'}
+                        fw={300}
+                        c={'dark.8'}
+                        mt={'lg'}
 
-                    <form className={styles.form} action="">
-                        <div className={styles.inputGroup}>
-                            <input id="search" className={styles.inputSearch} type="text" placeholder="Stadt suchen…"/>
-                            <button type="button" className={styles.settingsButton}>
-                                <Icons.Sliders/>
-                            </button>
-                            <button type="button" className={styles.submitButton}>
-                                <Icons.Search/>
-                            </button>
+                    >
+                        Finde die besten und neuesten Boulderhallen in ganz Deutschland und in deiner Nähe auf einen
+                        Blick.
+                    </Text>
+
+                    <DemoElement>
+                        <form className={styles.form} action="">
+                            <div className={styles.inputGroup}>
+                                <input id="search" className={styles.inputSearch} type="text"
+                                       placeholder="Stadt suchen…"/>
+                                <button type="button" className={styles.settingsButton}>
+                                    <IconAdjustmentsHorizontal/>
+                                </button>
+                                <button type="button" className={styles.submitButton}>
+                                    <IconSearch/>
+                                </button>
+                            </div>
+                        </form>
+                    </DemoElement>
+
+                    <DemoElement>
+                        <div className={styles.logos}>
+                            <Image
+                                src='/images/dummy/dummy-capterra.png'
+                                alt={'Capterra Logo'}
+                                width={200}
+                                height={100}
+                                priority
+                            />
+                            <Image
+                                src='/images/dummy/dummy-trustpilot.avif'
+                                alt={'Trustoilot Logo'}
+                                width={200}
+                                height={100}
+                                priority
+                            />
+                            <Image
+                                src='/images/dummy/dummy-g2.png'
+                                alt={'G2 Logo'}
+                                width={200}
+                                height={100}
+                                priority
+                            />
                         </div>
-                    </form>
-
-                    <div className={styles.logos}>
-                        <Image
-                            src='/dummy/dummy-capterra.png'
-                            alt={'Capterra Logo'}
-                            width={200}
-                            height={100}
-                            priority
-                        />
-                        <Image
-                            src='/dummy/dummy-trustpilot.avif'
-                            alt={'Trustoilot Logo'}
-                            width={200}
-                            height={100}
-                            priority
-                        />
-                        <Image
-                            src='/dummy/dummy-g2.png'
-                            alt={'G2 Logo'}
-                            width={200}
-                            height={100}
-                            priority
-                        />
-                    </div>
+                    </DemoElement>
                 </div>
                 <div className={styles.image}>
 

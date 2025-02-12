@@ -1,6 +1,6 @@
 import styles from "./faq.module.scss";
 
-import Container from "@/components/container";
+import {Container} from "@mantine/core";
 import HeadingGroup from "@/components/heading-group/headingGroup";
 import Accordion from "@/components/accordion/accordion";
 
@@ -19,7 +19,7 @@ export default function FAQ(props: Props) {
     return (
         <>
             <section className={styles.faq}>
-                <Container>
+                <Container size={'xl'}>
                     <div className={styles.inner}>
                         <HeadingGroup
                             heading={props.heading}

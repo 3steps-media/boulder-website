@@ -1,14 +1,22 @@
 import styles from './cities.module.scss';
 import {CityType} from "@/interfaces/city";
-import {HeadingType} from "@/interfaces/heading";
 
-import Container from "@/components/container";
-import Heading from "@/components/heading/heading";
+import {
+    AspectRatio,
+    BackgroundImage,
+    Badge,
+    Box,
+    Container,
+    Flex,
+    SimpleGrid,
+    Text,
+    Title
+} from "@mantine/core";
 import Link from "next/link";
-import Image from "next/image";
+import clsx from "clsx";
 
 type Props = {
-    heading: HeadingType;
+    heading: string;
     text?: string;
     lead?: string;
     items: CityType[];
@@ -17,35 +25,63 @@ type Props = {
 export default function Cities({heading, text, lead, items}: Props) {
     return (
         <section className={styles.cities}>
-            <Container>
-
-                <div className={styles.top}>
-                    <div className={styles.text}>{text || ''}</div>
-                    <div className={`${styles.lead} font-space-grotesk`}>{lead || ''}</div>
-                </div>
-
-                <Heading
-                    data-size={heading.size}
-                    data-tyle={heading.style}
+            <Container size={'xl'}>
+                <Flex
+                    justify={'space-between'}
+                    align={'flex-start'}
+                    gap={'xl'}
                 >
-                    {heading.text}
-                </Heading>
+                    <Text
+                        size={'xl'}
+                        fw={300}
+                        maw={'36.25rem'}
+                    >{text || ''}</Text>
+                    <Text className={clsx(styles.lead, 'font-space-grotesk')}>{lead || ''}</Text>
+                </Flex>
 
-                <div className={styles.grid}>
+                <Title order={2}>{heading}</Title>
+
+                <SimpleGrid
+                    cols={5}
+                    className={styles.grid}
+                    spacing="xl"
+                >
                     {
                         items.map(item => (
-                            <Link key={item.id} href={item.url} className={styles.city}>
-                                <Image
-                                    src={item.image}
-                                    alt={item.name}
-                                    width={280}
-                                    height={280}
-                                />
-                                <span>{item.name}</span>
-                            </Link>
+                            <Box
+                                key={item.id}
+                                className={styles.city}
+                                component={Link}
+                                href={item.slug}
+                            >
+                                <AspectRatio ratio={1}>
+                                    <BackgroundImage
+                                        className={styles.image}
+                                        src={item.image}
+                                        radius={'xl'}
+                                    >
+                                        <Flex
+                                            justify={'center'}
+                                            align={'flex-end'}
+                                            p={16}
+                                            mih={'100%'}
+                                        >
+                                            <Badge
+                                                className={styles.name}
+                                                size="xl"
+                                                autoContrast
+                                                tt={'none'}
+                                            >
+                                                {item.title}
+                                            </Badge>
+                                        </Flex>
+                                    </BackgroundImage>
+                                </AspectRatio>
+                            </Box>
+
                         ))
                     }
-                </div>
+                </SimpleGrid>
 
             </Container>
         </section>

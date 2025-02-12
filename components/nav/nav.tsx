@@ -1,12 +1,14 @@
+'use client'
+
 import Link from "next/link";
 import {usePathname} from 'next/navigation'
 
-export default function NavMenu(props: {
+export default function Nav(props: {
     className?: string;
-    currentClassName?: string;
     items: Item[];
 }) {
     const currentPath = usePathname();
+
     return (
         <nav className={props.className}>
             <ul>
@@ -15,7 +17,11 @@ export default function NavMenu(props: {
                         <li key={index}>
                             <Link
                                 href={item.href}
-                                className={currentPath === `${item.href}` ? `${props.currentClassName}` : ''}
+                                data-active={
+                                    item.href === currentPath
+                                    || (item.href !== '/' && currentPath.startsWith(item.href))
+                                    || undefined
+                                }
                             >
                                 {item.text}
                             </Link>

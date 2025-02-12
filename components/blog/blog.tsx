@@ -1,6 +1,6 @@
 import styles from './blog.module.scss'
 
-import Container from "@/components/container";
+import {Container} from "@mantine/core";
 import HeadingGroup from "@/components/heading-group/headingGroup";
 import Post from "@/components/post/post";
 import {PostType} from "@/interfaces/post";
@@ -15,7 +15,7 @@ export default function Blog(props: Props) {
     return (
         <>
             <section className={styles.blog}>
-                <Container>
+                <Container size={'xl'}>
                     <div className={styles.inner}>
                         <HeadingGroup
                             heading={props.heading}

@@ -10,24 +10,15 @@
         flex-direction: column;
         justify-content: center;
         align-items: flex-start;
-        gap: 3rem;
-    }
-
-    h1 {
         max-width: 46rem;
     }
 
-    p {
-        margin: -1.75rem 0 0;
-        font-size: 1.25rem;
-        line-height: 1.6em;
-        letter-spacing: 0;
-        font-weight: 300;
-        color: var(--color-text);
-        max-width: 46rem;
+    .title {
+        margin: 0;
     }
 
     .form {
+        margin: calc(var(--mantine-spacing-md) * 3) 0 0;
         width: 100%;
         max-width: 46rem;
 
@@ -100,7 +91,8 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        gap: 4rem;
+        margin: calc(var(--mantine-spacing-md) * 3) 0 0;
+        gap: calc(var(--mantine-spacing-md) * 4);
         max-width: 54.25rem;
 
         img {

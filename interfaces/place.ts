@@ -1,7 +1,7 @@
 export type PlaceType = {
     id: number;
-    name: string;
+    title: string;
     image: string;
-    url: string;
+    slug: string;
     location: string;
 }

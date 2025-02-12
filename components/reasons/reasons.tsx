@@ -1,8 +1,9 @@
 import styles from './reasons.module.scss';
-import {cn} from "@/utils/Utils";
-import Container from "@/components/container";
-import HeadingGroup from "@/components/heading-group/headingGroup";
+import clsx from "clsx";
+
+import {Container} from "@mantine/core";
 import ReasonItem from "@/components/reasons/reasonItem";
+import HeadingGroup from "@/components/heading-group/headingGroup";
 
 type Props = {
     heading: string;
@@ -17,15 +18,20 @@ type Props = {
 };
 
 export default function Reasons(props: Props) {
+
+    const LimitedData = props.count
+        ? props.items.slice(0, props.count)
+        : props.items;
+
     return (
         <>
             <section
-                className={cn(
+                className={clsx(
                     styles.reasons,
                     props.layout !== undefined ? styles[props.layout] : '',
                     props.style !== undefined ? styles[props.style] : ''
                 )}>
-                <Container>
+                <Container size={'xl'}>
                     <div className={styles.inner}>
 
                         <HeadingGroup
@@ -35,26 +41,15 @@ export default function Reasons(props: Props) {
                         />
 
                         <div className={styles.items}>
-                            {props.count ?
-                                [...Array(props.count).keys()].map((index) => (
-                                    <ReasonItem
-                                        key={index}
-                                        index={index}
-                                        title={props.items[index].title}
-                                        text={props.items[index].text}
-                                        className={styles.item}
-                                    />
-                                ))
-                                :
-                                props.items.map((item, index: number) => (
-                                    <ReasonItem
-                                        key={index}
-                                        index={index}
-                                        title={item.title}
-                                        text={item.text}
-                                        className={styles.item}
-                                    />
-                                ))
+                            {LimitedData.map((item, index: number) => (
+                                <ReasonItem
+                                    key={index}
+                                    index={index}
+                                    title={item.title}
+                                    text={item.text}
+                                    className={styles.item}
+                                />
+                            ))
                             }
                         </div>
                     </div>
