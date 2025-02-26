@@ -1,3 +1,5 @@
+import {IconBabyCarriage} from '@tabler/icons-react';
+
 const SampleData = {
     cities: [
         {
@@ -33,21 +35,21 @@ const SampleData = {
     ],
     faqPanels: [
         {
-            title: "Wie kann ich Boulderhallen finden und eintragen?",
+            title: "Wie kann ich Boulderhallen finden und eintragen? 01",
             content: "Auf einer Grundfläche von derzeit 1300 m² erwartet dich alles was dein Herz begehrt: Boulderfläche auf verschiedenen Ebenen von 3,00 m bis 4,50 m Wandhöhe.",
             isOpen: true
         },
         {
-            title: "Wie kann ich Boulderhallen finden und eintragen?",
+            title: "Wie kann ich Boulderhallen finden und eintragen? 02",
             content: "Auf einer Grundfläche von derzeit 1300 m² erwartet dich alles was dein Herz begehrt: Boulderfläche auf verschiedenen Ebenen von 3,00 m bis 4,50 m Wandhöhe.",
             isOpen: false,
         },
         {
-            title: "Wie kann ich Boulderhallen finden und eintragen?",
+            title: "Wie kann ich Boulderhallen finden und eintragen? 03",
             content: "Auf einer Grundfläche von derzeit 1300 m² erwartet dich alles was dein Herz begehrt: Boulderfläche auf verschiedenen Ebenen von 3,00 m bis 4,50 m Wandhöhe."
         },
         {
-            title: "Wie kann ich Boulderhallen finden und eintragen?",
+            title: "Wie kann ich Boulderhallen finden und eintragen? 04",
             content: "Auf einer Grundfläche von derzeit 1300 m² erwartet dich alles was dein Herz begehrt: Boulderfläche auf verschiedenen Ebenen von 3,00 m bis 4,50 m Wandhöhe."
         },
     ],
@@ -57,49 +59,57 @@ const SampleData = {
             title: 'Boulderhalle Hotzenblock Waldshut-Tiengen',
             image: 'https://images.unsplash.com/photo-1514924013411-cbf25faa35bb?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8Y2l0eXxlbnwwfHwwfHx8MA%3D%3D',
             slug: 'place-1',
-            location: 'Waldshut-Tiengen'
+            location: 'Waldshut-Tiengen',
+            rating: 4.5,
+            services: [0, 1, 2, 3, 4, 5, 6, 7]
         },
         {
             id: 2,
-            title: 'Boulderwelt München-West',
+            title: 'Boulderwelt München-West is a place with loooooong name fot my testing porposes only',
             image: 'https://images.unsplash.com/photo-1543872084-c7bd3822856f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGNpdHl8ZW58MHx8MHx8fDA%3D',
             slug: 'place-2',
-            location: 'München'
+            location: 'München',
+            services: [0, 1, 5, 6, 7]
         },
         {
             id: 3,
             title: 'Studio Bloc Pfungstadt',
             image: 'https://images.unsplash.com/photo-1495954380655-01609180eda3?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGNpdHl8ZW58MHx8MHx8fDA%3D',
             slug: 'place-3',
-            location: 'Pfungstadt'
+            location: 'Pfungstadt',
+            services: [0, 2, 4, 6]
         },
         {
             id: 4,
             title: 'Boulderwelt Frankfurt',
             image: 'https://images.unsplash.com/photo-1502899576159-f224dc2349fa?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjN8fGNpdHl8ZW58MHx8MHx8fDA%3D',
             slug: 'place-4',
-            location: 'Frankfurt am Main'
+            location: 'Frankfurt am Main',
+            services: [1, 3, 5, 7]
         },
         {
             id: 5,
             title: 'Blockwerk Mainz',
             image: 'https://images.unsplash.com/photo-1465447142348-e9952c393450?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjd8fGNpdHl8ZW58MHx8MHx8fDA%3D',
             slug: 'place-5',
-            location: 'Mainz'
+            location: 'Mainz',
+            services: [0, 1, 2]
         },
         {
             id: 6,
             title: 'Eifelblock Trier',
             image: 'https://images.unsplash.com/photo-1534800891164-a1d96b5114e7?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzF8fGNpdHl8ZW58MHx8MHx8fDA%3D',
             slug: 'place-6',
-            location: 'Trier'
+            location: 'Trier',
+            services: [7]
         },
         {
             id: 7,
             title: 'Plan B Jena',
             image: 'https://images.unsplash.com/photo-1516259670444-ad07068e14e8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDB8fGNpdHl8ZW58MHx8MHx8fDA%3D',
             slug: 'place-7',
-            location: 'Jena'
+            location: 'Jena',
+            services: [0, 1, 2, 3, 4]
         },
     ],
     posts: [
@@ -153,7 +163,11 @@ const SampleData = {
             title: 'Steinzeit Boulderhalle Göppingen#6',
             text: 'Auf einer Grundfläche von derzeit 60000 m² erwartet dich alles was dein Herz begehrt'
         },
-    ]
+    ],
+    subscribe: {
+        title: "Newsletter abonnieren!",
+        content: "Finde die besten und neuesten Boulderhallen in ganz Deutschland und in deiner Nähe auf einen Blick."
+    }
 }
 
 export default SampleData

@@ -31,7 +31,7 @@ export default function Reasons(props: Props) {
                     props.layout !== undefined ? styles[props.layout] : '',
                     props.style !== undefined ? styles[props.style] : ''
                 )}>
-                <Container size={'xl'}>
+                <Container>
                     <div className={styles.inner}>
 
                         <HeadingGroup

@@ -1,4 +1,4 @@
-import Heading from "@/components/heading/heading";
+import {Paper, Text, Title} from "@mantine/core";
 
 type Props = {
     index: number;
@@ -10,11 +10,14 @@ type Props = {
 export default function ReasonItem(props: Props) {
     return (
         <>
-            <div key={props.index} className={props.className}>
+            <Paper
+                key={props.index}
+                className={props.className}
+            >
                 <span>{props.index < 9 ? '0' + (props.index + 1) : props.index + 1}</span>
-                <Heading as={'h3'}>{props.title}</Heading>
-                <p>{props.text}</p>
-            </div>
+                <Title order={3}>{props.title}</Title>
+                <Text>{props.text}</Text>
+            </Paper>
         </>
     )
 }

@@ -8,6 +8,7 @@ import {
     APP_DESCRIPTION,
     SERVER_URL
 } from "@/lib/constants";
+import markerSDK from '@marker.io/browser';
 
 const inter = Inter({
     variable: "--font-inter",
@@ -27,6 +28,13 @@ export const metadata: Metadata = {
     description: `${APP_DESCRIPTION}`,
     metadataBase: new URL(SERVER_URL)
 };
+
+if (process.env.NEXT_ENVIRONMENT_TYPE && process.env.NEXT_ENVIRONMENT_TYPE !== 'local') {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const widget = await markerSDK.loadWidget({
+        project: '67b5e2b86ad49e9bf0d38677',
+    });
+}
 
 export default function RootLayout({children,}: Readonly<{ children: React.ReactNode; }>) {
     return (

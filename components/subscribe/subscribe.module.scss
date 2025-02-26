@@ -1,0 +1,19 @@
+.subscribe {
+    .inner {
+        background: transparent linear-gradient(307deg, #1FD1C2 0%, #8EEEC1 100%) 0 0 no-repeat;
+        border-radius: var(--mantine-radius-xl);
+        padding: 100px 85px;
+    }
+
+    h2 {
+        max-width: 600px;
+    }
+
+    p {
+        max-width: 520px;
+        font-size: var(--mantine-font-size-xl);
+        line-height: 2rem;
+        /* TODO font-weight in theme.ts */
+        font-weight: 300;
+    }
+}

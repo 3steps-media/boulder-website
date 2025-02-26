@@ -1,48 +1,60 @@
 'use client'
 
-import {Swiper, SwiperSlide} from 'swiper/react';
-import {Pagination} from 'swiper/modules';
-import {Container, Title} from "@mantine/core";
-import Place from "@/components/place/place";
+import {useState} from 'react';
+
+import {
+    Container,
+    Flex,
+    Title
+} from "@mantine/core";
+import 'swiper/css/pagination';
 
 import 'swiper/css';
-import 'swiper/css/pagination';
 import styles from "./bestPlaces.module.scss";
+
+import PlacesCarousel from "@/components/places/places-carousel";
+import PlaceCardSettings from "@/components/settings/place-card";
+
+// Interfaces
 import {PlaceType} from "@/interfaces/place";
 
-type Props = {
+type BestPlacesProps = {
     heading: string;
     items: PlaceType[];
 };
 
-export default function BestPlaces(props: Props) {
+export default function BestPlaces(props: BestPlacesProps) {
+    const [place, setPlaceData] = useState({
+        Ratio: 'square',
+        TitleHeight: 1,
+        Services: false,
+        Info: true,
+        MetaPosition: false,
+        MetaAlignment: 'top',
+        MetaOrder: false,
+        Rating: {
+            Type: 'stars'
+        }
+    });
+
+    const changePlaceData = (param: string, value: string | number | boolean | object) => {
+        setPlaceData({...place, [param]: value})
+    }
+
     return (
         <section className={styles.best}>
-            <Container size={'xl'}>
-                <Title order={2}>{props.heading}</Title>
+            <Container>
+                <Flex align={'center'} gap={32}>
+                    <Title order={2}>{props.heading}</Title>
+                    <PlaceCardSettings data={place} onChangePlaceData={changePlaceData}/>
+                </Flex>
             </Container>
 
-            <Swiper
-                slidesPerView={'auto'}
-                centeredSlides={true}
-                spaceBetween={32}
-                loop={true}
-                keyboard={{
-                    enabled: true,
-                }}
-                mousewheel={true}
-                pagination={{
-                    clickable: true,
-                }}
-                modules={[Pagination]}
-                className={styles.slider}
-            >
-                {props.items.map((item, index: number) => (
-                    <SwiperSlide key={index}>
-                        <Place item={item}/>
-                    </SwiperSlide>
-                ))}
-            </Swiper>
+            <PlacesCarousel
+                items={props.items}
+                classes={styles.slider}
+                placeData={place}
+            />
 
         </section>
     )

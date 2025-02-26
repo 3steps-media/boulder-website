@@ -17,8 +17,52 @@
             text-wrap: balance;
         }
     }
+}
 
-    .accordion {
-        max-width: 50rem;
+.root {
+    --accordion-transition-duration: 500ms;
+
+    width: 100%;
+    max-width: 50rem;
+}
+
+.item {
+    padding: 0 0 1.75rem 0;
+}
+
+.control {
+    padding: 2.75rem 0 1rem 0;
+    font-size: 1.5rem;
+    line-height: 1.1em;
+    background-color: transparent;
+
+    &:hover {
+        .label {
+            color: var(--theme-color-accent);
+        }
     }
+}
+
+.chevron {
+    &[data-rotate] {
+        transform: rotate(45deg);
+    }
+}
+
+.label {
+    padding: 0;
+}
+
+.panel {
+    padding: 0;
+}
+
+.content {
+    padding: 0 0 1rem 0;
+    max-width: 600px;
+    /* TODO FUCKING COLORS*/
+    color: #1D1D1D;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    font-weight: 300;
 }

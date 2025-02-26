@@ -1,6 +1,6 @@
 .cities {
     padding: 6.25rem 0 1rem;
-    background-color: var(--color-heading);
+    background-color: var(--mantine-color-blue-9);
     color: #ffffff;
 
     h2 {
@@ -37,6 +37,7 @@
 
         .name {
             pointer-events: none;
+            background-color: var(--mantine-color-blue-9);
         }
     }
 }

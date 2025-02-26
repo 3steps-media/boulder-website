@@ -1,7 +1,7 @@
 import type {Metadata} from "next";
 import HeroInner from "@/components/hero-inner/heroInner";
-import Header from "@/components/shared/header";
-import Footer from "@/components/shared/footer";
+import Header from "@/components/header";
+import Footer from "@/components/footer";
 
 export default function About() {
     return (

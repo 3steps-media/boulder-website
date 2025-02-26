@@ -1,28 +1,14 @@
 @layer default, mantine, vendor, components, utilites;
 
 @import "@mantine/core/styles.layer.css";
+@import "@mantine/spotlight/styles.layer.css";
 
 @layer default {
     :root {
-        --color-heading: #07344f;
-        --color-heading-span: #747474;
-        --color-text: #1D1D1D;
-        --color-link: #1D1D1D;
-        --color-accent: #FFC655;
-        --color-accent-2: #6DE6C2;
-        --color-placeholder: #575757;
-        --color-ligth: #9B9B9B;
-        --container-padding: 1.5rem;
+        --theme-color-accent: var(--mantine-color-yellow-2);
+        --theme-color-link: var(--mantine-color-blue-9);
+        --theme-color-link-hover: var(--mantine-color-yellow-2);
 
-        --font-size-small: .875rem;
-        --font-size-default: 1rem;
-
-        font-size: 100%;
-        line-height: 1.5;
-        font-weight: 400;
-
-        color: var(--color-text);
-        background-color: #F8F8F8;
 
         font-synthesis: none;
         text-rendering: optimizeLegibility;
@@ -44,11 +30,6 @@
 
     input {
         line-height: 1em;
-        color: var(--color-text);
-    }
-
-    input::placeholder {
-        color: var(--color-placeholder);
     }
 }
 
@@ -80,7 +61,7 @@
                     display: block;
                     position: absolute;
                     content: "";
-                    background-color: var(--color-accent);
+                    background-color: var(--theme-color-accent);
                     right: 0;
                     bottom: 7px;
                     left: 0;

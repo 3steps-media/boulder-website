@@ -20,7 +20,7 @@ export default function Hero({backgroundImage}: Props) {
             className={styles.hero}
             style={{backgroundImage: backgroundImage ? `url(${backgroundImage.src})` : ''}}
         >
-            <Container size={'xl'}>
+            <Container>
                 <div className={styles.content}>
                     <Title
                         className={clsx('heading', styles.title)}

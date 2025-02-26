@@ -70,17 +70,17 @@
                 color: var(--color-text);
 
                 &:hover {
-                    background-color: var(--color-text);
+                    background-color: var(--mantine-color-blue-9);
                     color: #ffffff;
                 }
             }
 
             &.submitButton {
-                background-color: var(--color-accent);
+                background-color: var(--theme-color-accent);
                 color: #ffffff;
 
                 &:hover {
-                    background-color: var(--color-text);
+                    background-color: var(--mantine-color-blue-9);
                     color: #ffffff;
                 }
             }

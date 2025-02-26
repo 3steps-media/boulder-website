@@ -1,0 +1,100 @@
+/* See also https://mantine.dev/core/button/#styles-api */
+
+.root {
+    --ui-button-background: var(--mantine-color-blue-9);
+    --ui-button-background-dark: var(--mantine-color-blue-9);
+    --ui-button-background-light: var(--mantine-color-blue-0);
+    --ui-button-background-hover: var(--mantine-color-blue-1);
+    --ui-button-border-color: var(--mantine-color-blue-9);
+    --ui-button-border-color-hover: var(--mantine-color-blue-1);
+    --ui-button-text-color: var(--mantine-color-blue-0);
+    --ui-button-text-color-hover: var(--mantine-color-blue-9);
+
+
+    height: var(--button-height);
+    border-radius: var(--button-radius);
+    padding: {
+        left: var(--button-padding-x);
+        right: var(--button-padding-x);
+    };
+    font-size: var(--button-fz);
+    background-color: var(--ui-button-background);
+    color: var(--ui-button-text-color);
+    border-color: var(--ui-button-border-color);
+
+    &:hover {
+        background-color: var(--ui-button-background-hover);
+        color: var(--ui-button-text-color-hover);
+        border-color: var(--ui-button-border-color-hover);
+    }
+
+    &[data-loading],
+    &[data-disabled],
+    &[disabled] {
+        pointer-events: none;
+        cursor: not-allowed;
+    }
+
+    &[data-variant="outline"] {
+        border-color: var(--ui-button-border-color);
+        background-color: transparent;
+        color: var(--ui-button-border-color);
+
+        &:hover {
+            background-color: var(--ui-button-background-hover);
+            color: var(--ui-button-text-color-hover);
+            border-color: var(--ui-button-border-color-hover);
+        }
+    }
+
+    &[data-variant="default"] {
+        border-color: var(--mantine-color-default-border);
+        background-color: var(--mantine-color-default);
+        color: var(--mantine-color-default-color);
+
+        &:hover {
+            background-color: var(--mantine-color-default-hover);
+            color: var(--mantine-color-default-color);
+            border-color: var(--mantine-color-default-border);
+        }
+    }
+
+    &[data-variant="subtle"] {
+        border-color: transparent;
+        background-color: var(--mantine-color-default);
+        color: var(--ui-button-background);
+
+        &:hover {
+            background-color: var(--ui-button-background-light);
+            color: var(--ui-button-background);
+        }
+    }
+
+    &[data-variant="transparent"] {
+        border-color: transparent;
+        background-color: transparent;
+        color: var(--ui-button-background);
+    }
+
+    &[data-variant="white"] {
+        border-color: white;
+        background-color: white;
+        color: var(--ui-button-background);
+
+        &:hover {
+            background-color: rgba(252, 252, 252, 1);
+        }
+    }
+
+    &[data-style="secondary"] {
+        --ui-button-background: var(--mantine-color-green-3);
+        --ui-button-background-dark: var(--mantine-color-green-9);
+        --ui-button-background-light: var(--mantine-color-green-0);
+        --ui-button-background-hover: var(--mantine-color-green-9);
+        --ui-button-border-color: var(--mantine-color-green-3);
+        --ui-button-border-color-hover: var(--mantine-color-green-9);
+        --ui-button-text-color: var(--mantine-color-green-9);
+        --ui-button-text-color-hover: var(--mantine-color-green-0);
+    }
+
+}

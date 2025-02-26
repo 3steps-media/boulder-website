@@ -1,8 +1,12 @@
-import styles from './blog.module.scss'
-
-import {Container} from "@mantine/core";
+import {
+    Box,
+    Container,
+    SimpleGrid,
+    Stack
+} from "@mantine/core";
 import HeadingGroup from "@/components/heading-group/headingGroup";
 import Post from "@/components/post/post";
+
 import {PostType} from "@/interfaces/post";
 
 type Props = {
@@ -14,23 +18,37 @@ type Props = {
 export default function Blog(props: Props) {
     return (
         <>
-            <section className={styles.blog}>
-                <Container size={'xl'}>
-                    <div className={styles.inner}>
+            <Box
+                component={'section'}
+                py={{base: '6rem', xl: '8.5rem'}}
+            >
+                <Container>
+
+                    <Stack
+                        align={'flex-start'}
+                        justify={'flex-start'}
+                        gap={64}
+                    >
                         <HeadingGroup
                             heading={props.heading}
                             size={'lg'}
                             text={props.text}
                         />
+                        <SimpleGrid
+                            cols={{base: 1, md: 4}}
+                            spacing="xl"
+                            mt={30}
+                        >
+                            {
+                                props.posts.map(post => (
+                                    <Post key={post.id} data={post}/>
+                                ))
+                            }
+                        </SimpleGrid>
+                    </Stack>
 
-                        <div className={styles.posts}>
-                            {props.posts.map(post => (
-                                <Post key={post.id} data={post}/>
-                            ))}
-                        </div>
-                    </div>
                 </Container>
-            </section>
+            </Box>
         </>
     )
 }

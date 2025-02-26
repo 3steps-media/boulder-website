@@ -2,32 +2,13 @@
 
 import {
     Container,
+    Button,
     createTheme,
-    px,
-    em,
-    rem
+    rem, ActionIcon, Rating, Accordion
 } from "@mantine/core";
 
-// https://mantine.dev/theming/colors/#add-custom-colors-types
-
-import {
-    DefaultMantineColor,
-    MantineColorsTuple,
-} from '@mantine/core';
-
-type ExtendedCustomColors =
-    | 'primary'
-    | 'secondary'
-    | 'tertiary'
-    | DefaultMantineColor;
-
-declare module '@mantine/core' {
-    export interface MantineThemeColorsOverride {
-        colors: Record<ExtendedCustomColors, MantineColorsTuple>;
-    }
-}
-
-// end add-custom-colors-types
+// TODO SOME STRANGE SHIT HERE
+import styles from "@/components/faq/faq.module.scss";
 
 const CONTAINER_SIZES: Record<string, number> = {
     xxs: 360,
@@ -40,13 +21,11 @@ const CONTAINER_SIZES: Record<string, number> = {
 };
 
 export const theme = createTheme({
-    white: 'var(--mantine-color-gray-0)',
     colors: {
-        primary: [
-            '#fff9eb',
-            '#ffeec6',
+        yellow: [
+            '#ffeed0',
             '#ffdb88',
-            '#ffc655',
+            '#ffc655', // yellow.2
             '#ffaa20',
             '#f98707',
             '#dd6102',
@@ -54,9 +33,9 @@ export const theme = createTheme({
             '#94310c',
             '#7a2a0d',
             '#461302',
+            '#442e00',
         ],
-        secondary: [
-            '#eefaff',
+        blue: [
             '#dcf5ff',
             '#b2edff',
             '#6de2ff',
@@ -66,23 +45,23 @@ export const theme = createTheme({
             '#0079b4',
             '#006795',
             '#00547a',
-            '#00344f',
+            '#00344f', // blue.9
         ],
-        tertiary: [
-            '#effefb',
+        green: [
             '#c9fef5',
             '#93fcec',
-            '#55f3e1',
-            '#1fd1c2',
-            '#0ac2b6',
-            '#059c95',
-            '#097c78',
-            '#0c6361',
-            '#0f5250',
+            '#55f3e0',
+            '#1fd1c1', // green.3
+            '#0ac2b5',
+            '#059c94',
+            '#097c77',
+            '#0c6360',
+            '#0f524f',
             '#013132',
         ],
     },
     fontFamily: 'Inter',
+    autoContrast: true,
     headings: {
         fontFamily: 'Space Grotesk',
         fontWeight: '600',
@@ -106,7 +85,8 @@ export const theme = createTheme({
         sm: rem(10),
         md: rem(15),
         lg: rem(20),
-        xl: rem(25)
+        xl: rem(25),
+        xxl: rem(30)
     },
     lineHeights: {
         xs: '1',
@@ -117,6 +97,9 @@ export const theme = createTheme({
     },
     components: {
         Container: Container.extend({
+            defaultProps: {
+                size: 'xxl'
+            },
             vars: (_, {size, fluid}) => ({
                 root: {
                     '--container-size': fluid
@@ -126,6 +109,58 @@ export const theme = createTheme({
                             : rem(size),
                 },
             }),
+        }),
+        ActionIcon: ActionIcon.extend({
+            defaultProps: {
+                autoContrast: true,
+                color: 'blue',
+                radius: 'xs',
+                variant: 'filled',
+            },
+        }),
+        Accordion: Accordion.extend({
+            classNames: {
+                root: styles.root,
+                item: styles.item,
+                control: styles.control,
+                chevron: styles.chevron,
+                label: styles.label,
+                icon: styles.icon,
+                itemTitle: styles.itemTitle,
+                panel: styles.panel,
+                content: styles.content,
+            }
+        }),
+        Button: Button.extend({
+            defaultProps: {
+                autoContrast: true,
+                color: 'blue',
+                fw: '500',
+                radius: 'sm',
+                variant: 'filled',
+            },
+            vars: (theme, props) => {
+                const BUTTON_DEFAULTS: Record<string, string> = {}
+                const BUTTON_PARAMS: Record<string, { [s: string]: string }> = {
+                    xl: {'--button-padding-x': '60px'},
+                    lg: {'--button-padding-x': '50px'},
+                    md: {
+                        '--button-height': '42px',
+                        '--button-padding-x': '40px',
+                        '--button-fz': '16px',
+                    },
+                    sm: {'--button-padding-x': '30px'},
+                    xs: {'--button-padding-x': '20px'}
+                }
+                return {
+                    root: {...BUTTON_DEFAULTS, ...BUTTON_PARAMS[props.size || 'md']},
+                };
+            }
+        }),
+        Rating: Rating.extend({
+            defaultProps: {
+                color: 'yellow.2'
+            },
         }),
     }
 });

@@ -8,6 +8,7 @@ import BestPlaces from "@/components/best-places/bestPlaces";
 import Reasons from "@/components/reasons";
 import FAQ from "@/components/faq/faq";
 import Blog from "@/components/blog/blog";
+import Subscribe from "@/components/subscribe/subscribe";
 
 import SampleData from "@/_data/sample-data";
 
@@ -60,6 +61,11 @@ export default function Home() {
                     heading={"Neuste Blog-Beiträge"}
                     text={"Finde die besten und neuesten Boulderhallen in ganz Deutschland und in deiner Nähe auf einen Blick."}
                     posts={SampleData.posts}
+                />
+
+                <Subscribe
+                    title={SampleData.subscribe.title}
+                    content={SampleData.subscribe.content}
                 />
 
             </main>

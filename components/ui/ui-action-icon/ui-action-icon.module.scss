@@ -1,0 +1,96 @@
+/* See also https://mantine.dev/core/button/#styles-api */
+
+.root {
+    --ui-ai-background: var(--mantine-color-blue-9);
+    --ui-ai-background-dark: var(--mantine-color-blue-9);
+    --ui-ai-background-light: var(--mantine-color-blue-0);
+    --ui-ai-background-hover: var(--mantine-color-blue-1);
+    --ui-ai-border-color: var(--mantine-color-blue-9);
+    --ui-ai-border-color-hover: var(--mantine-color-blue-1);
+    --ui-ai-text-color: var(--mantine-color-blue-0);
+    --ui-ai-text-color-hover: var(--mantine-color-blue-9);
+
+    border-radius: var(--ai-radius);
+    background-color: var(--ui-ai-background);
+    color: var(--ui-ai-text-color);
+
+    &:hover {
+        background-color: var(--ui-ai-background-hover);
+        color: var(--ui-ai-text-color-hover);
+    }
+
+    &[data-loading],
+    &[data-disabled],
+    &[disabled] {
+        pointer-events: none;
+        cursor: not-allowed;
+    }
+
+    &[data-variant="outline"] {
+        border-color: var(--ui-ai-border-color);
+        background-color: transparent;
+        color: var(--ui-ai-border-color);
+
+        &:hover {
+            background-color: var(--ui-ai-background-hover);
+            color: var(--ui-ai-text-color-hover);
+            border-color: var(--ui-ai-border-color-hover);
+        }
+    }
+
+    &[data-variant="default"] {
+        border-color: var(--mantine-color-default-border);
+        background-color: var(--mantine-color-default);
+        color: var(--mantine-color-default-color);
+
+        &:hover {
+            background-color: var(--mantine-color-default-hover);
+            color: var(--mantine-color-default-color);
+            border-color: var(--mantine-color-default-border);
+        }
+    }
+
+    &[data-variant="subtle"] {
+        border-color: transparent;
+        background-color: var(--mantine-color-default);
+        color: var(--ui-ai-background);
+
+        &:hover {
+            background-color: var(--ui-ai-background-light);
+            color: var(--ui-ai-background);
+        }
+    }
+
+    &[data-variant="transparent"] {
+        border-color: transparent;
+        background-color: transparent;
+        color: var(--ui-ai-background);
+
+        &:hover {
+            color: var(--ui-ai-text-color-hover);
+            background-color: var(--theme-color-accent);
+        }
+    }
+
+    &[data-variant="white"] {
+        border-color: white;
+        background-color: white;
+        color: var(--ui-ai-background);
+
+        &:hover {
+            background-color: rgba(252, 252, 252, 1);
+        }
+    }
+
+    &[data-style="secondary"] {
+        --ui-ai-background: var(--mantine-color-green-3);
+        --ui-ai-background-dark: var(--mantine-color-green-9);
+        --ui-ai-background-light: var(--mantine-color-green-0);
+        --ui-ai-background-hover: var(--mantine-color-green-9);
+        --ui-ai-border-color: var(--mantine-color-green-3);
+        --ui-ai-border-color-hover: var(--mantine-color-green-9);
+        --ui-ai-text-color: var(--mantine-color-green-9);
+        --ui-ai-text-color-hover: var(--mantine-color-green-0);
+    }
+
+}

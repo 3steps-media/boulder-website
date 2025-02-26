@@ -1,304 +1,244 @@
-import styles from "./page.module.scss";
+import React from "react";
+
 import {
-    IconStar,
-    IconMapPin,
-    IconBrandFacebook,
-    IconBrandX,
-    IconExternalLink,
     IconStack2,
     IconHash,
-    IconClock,
     IconCheck,
     IconMessageCircle,
-    IconChevronRight
+    IconChevronRight, IconToolsKitchen3, IconBike
 } from "@tabler/icons-react"
 
+import {
+    Button,
+    Container,
+    Group, List, ListItem, SimpleGrid,
+    Stack,
+    Text,
+    Title
+} from "@mantine/core";
 
-import {Container} from "@mantine/core";
 import Heading from "@/components/heading/heading";
-import Link from "next/link";
 import Image from "next/image";
 import Fancybox from "@/components/fancybox/Fancybox";
-import {cn} from "@/utils/Utils";
+
+import {
+    HalleAchievements,
+    HalleComment,
+    HalleContent,
+    HalleGallery,
+    HalleLocation,
+    HalleMainFeatures,
+    HalleMeta,
+    HalleSummary
+} from "@/components/halle";
+
+import styles from "./page.module.scss";
+
+import SampleData from "@/_data/sample-data";
+import {IHalleGallery} from "@/interfaces/halle";
+import {PlaceType} from "@/interfaces/place";
+
+const hallen: PlaceType[] = SampleData.places;
 
 export function generateStaticParams() {
-    return [
-        {slug: 'place-1'},
-        {slug: 'place-2'},
-        {slug: 'place-3'},
-        {slug: 'place-4'},
-        {slug: 'place-5'},
-        {slug: 'place-6'},
-        {slug: 'place-7'},
-    ]
+    return hallen.map((halle: PlaceType) => ({
+        slug: halle.slug
+    }))
 }
 
 export default async function Halle({params}: { params: Promise<{ slug: string }> }) {
-    const {slug} = await params
+    const {slug} = await params;
+    const halle: PlaceType[] = hallen.filter((place: PlaceType) => place.slug === slug);
+
+    const achievements: { icon: React.ReactNode; text: string }[] = [
+        {
+            icon: <IconHash/>,
+            text: "Local Hero"
+        },
+        {
+            icon: <IconHash/>,
+            text: "Top Anbieter"
+        },
+    ]
+    const gallery: IHalleGallery[] = [
+        {
+            image: 'https://images.unsplash.com/photo-1559925393-8be0ec4767c8?q=80&w=2942&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+            caption: 'Captiuon #1'
+        },
+        {
+            image: 'https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=2894&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+            caption: 'Captiuon #2'
+        },
+        {
+            image: 'https://plus.unsplash.com/premium_photo-1663932464735-e0946d833749?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+            caption: 'Captiuon #3'
+        }
+    ]
+    const mainFeatures: { icon: React.ReactNode; feature: string }[] = [
+        {
+            icon: <IconBike/>,
+            feature: 'Gruppengröße',
+        },
+        {
+            icon: <IconStack2/>,
+            feature: "Kletterfläche"
+        },
+        {
+            icon: <IconToolsKitchen3/>,
+            feature: "Restaurant"
+        },
+        {
+            icon: <IconStack2/>,
+            feature: "Stack"
+        },
+
+    ]
+
     return (
         <>
             <section className={styles.hero}>
-                <Container size={'xl'}>
-                    <div className={styles.inner}>
-                        <div className={styles.content}>
-                            <div className={styles.top}>
-                                <Heading as={'h1'}>Steinzeit Boulderhalle Göppingen ({slug})</Heading>
+                <Container>
+                    <Group gap={64} align={"stretch"} grow>
+                        <Stack gap={0} justify={'space-between'} mih={'100%'}>
+                            <Stack justify={'space-between'} h={'100%'}>
+                                <Stack gap={0}>
+                                    <Title size={'h1'} className={styles.title}>
+                                        {halle[0].title}
+                                    </Title>
 
-                                <div className={styles.location}>
-                                    <IconMapPin/>
-                                    Eislingen/Fils
-                                </div>
+                                    <HalleLocation location={`Eislingen/Fils (${slug})`}/>
 
-                                {/*TODO I don't like meta here*/}
-                                <div className={styles.meta}>
-                                    <div className={styles.rating}>
-                                        5.0
-                                        <IconStar/>
-                                        <IconStar/>
-                                        <IconStar/>
-                                        <IconStar/>
-                                        <IconStar/>
-                                    </div>
-                                    <div className={styles.social}>
-                                        <Link href={'https://facebook.com'} target={'_blank'} rel="noopener noreferrer">
-                                            <IconBrandFacebook/>
-                                        </Link>
-                                        <Link href={'#'} target={'_blank'} rel="noopener noreferrer">
-                                            <IconBrandX/>
-                                        </Link>
+                                    {/*TODO I don't like meta here but...*/}
+                                    <HalleMeta classes={styles.meta}/>
 
-                                        <Link href={'#'}>
-                                            <IconExternalLink/>
-                                        </Link>
-                                    </div>
-                                </div>
+                                    <HalleMainFeatures items={mainFeatures}/>
 
-                                <div className={styles.services}>
-                                    <div className={styles.service}>
-                                        <IconStack2/>
-                                        Gruppengröße
-                                    </div>
-                                    <div className={styles.service}>
-                                        <IconStack2/>
-                                        Kletterfläche
-                                    </div>
-                                    <div className={styles.service}>
-                                        <IconStack2/>
-                                        Restaurant
-                                    </div>
-                                </div>
+                                    {/*TODO replace with TypographyStylesProvider*/}
+                                    <Text size={'md'} lh={1.5} fw={300} mb={24}>
+                                        Auf einer Grundfläche von derzeit 1300 m² erwartet dich alles was dein Herz
+                                    </Text>
+                                    <Text size={'md'} lh={1.5} fw={300} mb={24}>
+                                        Boulderfläche auf verschiedenen Ebenen von 3,00 m bis 4,50 m Wandhöhe. Von
+                                        positiv geneigter Platte über gerade Wände, sanfte Überhänge, steiles Gelände
+                                        bis hin zum 8,00 m ausladenden Dach des Diamants ist alles da.
+                                    </Text>
+                                    <Text size={'md'} lh={1.5} fw={300}>
+                                        Über 280 Routen in verschiedenen Schwierigkeiten und wöchentlich neuen
+                                        „Problemen“ bieten dir ein abwechslungsreiches und spannendes Erlebnis.
+                                    </Text>
+                                    {/**/}
 
-                                <p>
-                                    Auf einer Grundfläche von derzeit 1300 m² erwartet dich alles was dein Herz begehrt:
-                                </p>
-                                <p>
-                                    Boulderfläche auf verschiedenen Ebenen von 3,00 m bis 4,50 m Wandhöhe. Von positiv
-                                    geneigter Platte über gerade Wände, sanfte Überhänge, steiles Gelände bis hin zum
-                                    8,00 m ausladenden Dach des Diamants ist alles da.
-                                </p>
-                                <p>
-                                    Über 280 Routen in verschiedenen Schwierigkeiten und wöchentlich neuen „Problemen“
-                                    bieten dir ein abwechslungsreiches und spannendes Erlebnis.
-                                </p>
-                            </div>
-                            <div className={styles.bottom}>
-                                <div className={styles.achievements}>
-                                    <div className={styles.item}>
-                                        <IconHash/>
-                                        <p>Local Hero</p>
-                                    </div>
-                                    <div className={styles.item}>
-                                        <IconHash/>
-                                        <p>Top Arbeiter</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <Fancybox
-                            className={styles.gallery}
-                            options={{
-                                Carousel: {
-                                    infinite: true,
-                                },
-                            }}
-                        >
-                            <a href={'https://images.unsplash.com/photo-1559925393-8be0ec4767c8?q=80&w=2942&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'}
-                               data-fancybox="gallery"
-                               data-caption="Caption #1"
-                            >
-                                <Image
-                                    src="https://images.unsplash.com/photo-1559925393-8be0ec4767c8?q=80&w=2942&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                                    alt={''}
-                                    width={800}
-                                    height={600}
-                                />
-                            </a>
-                            <a href={'https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=2894&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'}
-                               data-fancybox="gallery"
-                               data-caption="Caption #2"
-                            >
-                                <Image
-                                    src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=2894&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                                    alt={''}
-                                    width={420}
-                                    height={247}
-                                />
-                            </a>
-                            <a href={'https://plus.unsplash.com/premium_photo-1663932464735-e0946d833749?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'}
-                               data-fancybox="gallery"
-                               data-caption="Caption #3"
-                            >
-                                <Image
-                                    src="https://plus.unsplash.com/premium_photo-1663932464735-e0946d833749?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                                    alt={''}
-                                    width={420}
-                                    height={247}
-                                />
-                            </a>
-                            <div className={styles.hidden}>
-                                <a href={'https://images.unsplash.com/photo-1514933651103-005eec06c04b?q=80&w=2874&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'}
-                                   data-fancybox="gallery"
-                                   data-caption="Caption #3"
-                                >
-                                    <Image
-                                        src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?q=80&w=2874&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                                        alt={''}
-                                        width={420}
-                                        height={247}
-                                    />
-                                </a>
-                            </div>
-                        </Fancybox>
-                    </div>
-                    {/*TODO rename?*/}
-                    {/*TODO maybe 2 divs: items + action*/}
-                    <div className={styles.summary}>
-                        <div className={styles.items}>
-                            <div className={styles.item}>
-                                <div className={styles.icon}>
-                                    <IconStar/>
-                                </div>
-                                <div className={styles.legend}>
-                                    <span>2</span>
-                                    Bewertungen
-                                </div>
-                            </div>
-                            <div className={styles.item}>
-                                <div className={styles.icon}>
-                                    <IconClock/>
-                                </div>
-                                <div className={styles.legend}>
-                                    <span>Heute geöffnet</span>
-                                    08:00 - 19:00 Uhr
-                                </div>
-                            </div>
-                            <div className={styles.item}>
-                                <div className={styles.icon}>
-                                    <IconMapPin/>
-                                </div>
-                                <div className={styles.legend}>
-                                    <span>Musterstraße 4</span>
-                                    Eislingen/Fils
-                                </div>
-                            </div>
-                        </div>
-                        <div className={cn(styles.action)}>
-                            <div className={styles.price}>
-                                <span>ab</span>
-                                8,50€
-                            </div>
-                            <button type={'button'}>Ruf uns jetzt an</button>
-                        </div>
-                    </div>
+                                </Stack>
+                                <HalleAchievements items={achievements}/>
+                            </Stack>
+                        </Stack>
+
+                        <HalleGallery items={gallery} classes={styles.gallery}/>
+                    </Group>
+                    <HalleSummary classes={styles.summary}/>
                 </Container>
             </section>
 
             <main className={styles.main}>
                 <Container size={'xl'}>
                     <div className={styles.inner}>
-                        <Heading>Beschreibung</Heading>
-                        <p>
-                            Auf einer Grundfläche von derzeit 1300 m² erwartet dich alles was dein Herz begehrt:
-                        </p>
-                        <p>
-                            Boulderfläche auf verschiedenen Ebenen von 3,00 m bis 4,50 m Wandhöhe. Von positiv
-                            geneigter Platte über gerade Wände, sanfte Überhänge, steiles Gelände bis hin zum
-                            8,00 m ausladenden Dach des Diamants ist alles da.
-                        </p>
-                        <p>
-                            Über 280 Routen in verschiedenen Schwierigkeiten und wöchentlich neuen „Problemen“
-                            bieten dir ein abwechslungsreiches und spannendes Erlebnis.
-                        </p>
+                        <HalleContent/>
 
-                        <Heading>Ausstattung Steinzeithalle Göppingen</Heading>
+                        <Title order={2} size={'40px'}>Ausstattung Steinzeithalle Göppingen</Title>
 
-                        <Heading as={'h3'}>Beliebteste Ausstattungen</Heading>
+                        <Title order={3} size={'md'}>Beliebteste Ausstattungen</Title>
 
-                        <ul className={styles.services2}>
-                            <li><IconHash/> Tanzlokal & Sauna</li>
-                            <li><IconHash/> Duschen</li>
-                            <li><IconHash/> Cocktailbar</li>
-                            <li><IconHash/> Restaurant</li>
-                            <li><IconHash/> Parkplatz</li>
-                            <li><IconHash/> Barrierefreier Zugang</li>
-                            <li><IconHash/> Wiener Würstchen</li>
-                            <li><IconHash/> Thüringer Rostbratwurst</li>
-                        </ul>
+                        <List
+                            className={styles.services2}
+                            size="sm"
+                            center
+                            icon={<IconHash size={24}/>}
+                        >
+                            <ListItem>Tanzlokal & Sauna</ListItem>
+                            <ListItem>Duschen</ListItem>
+                            <ListItem>Cocktailbar</ListItem>
+                            <ListItem>Restaurant</ListItem>
+                            <ListItem>Parkplatz</ListItem>
+                            <ListItem>Barrierefreier Zugang</ListItem>
+                            <ListItem>Wiener Würstchen</ListItem>
+                            <ListItem>Thüringer Rostbratwurst</ListItem>
+                        </List>
 
                         <div className={styles.services3}>
                             <div>
-                                <Heading as={'h3'}>
+                                <Title order={3} size={'md'}>
                                     <IconHash/>
                                     Komfortabler Aufenthalt
-                                </Heading>
+                                </Title>
 
-                                <ul>
-                                    <li><IconCheck/> Tanzlokal & Sauna</li>
-                                    <li><IconCheck/> Duschen</li>
-                                    <li><IconCheck/> Cocktailbar</li>
-                                    <li><IconCheck/> Restaurant</li>
-                                    <li><IconCheck/> Parkplatz</li>
-                                    <li><IconCheck/> Barrierefreier Zugang</li>
-                                    <li><IconCheck/> Wiener Würstchen</li>
-                                    <li><IconCheck/> Thüringer Rostbratwurst</li>
-                                </ul>
+                                <List
+                                    spacing="xs"
+                                    size="sm"
+                                    center
+                                    icon={<IconCheck size={24}/>}
+                                >
+                                    <ListItem>Tanzlokal & Sauna</ListItem>
+                                    <ListItem>Duschen</ListItem>
+                                    <ListItem>Cocktailbar</ListItem>
+                                    <ListItem>Restaurant</ListItem>
+                                    <ListItem>Parkplatz</ListItem>
+                                    <ListItem>Barrierefreier Zugang</ListItem>
+                                    <ListItem>Wiener Würstchen</ListItem>
+                                    <ListItem>Thüringer Rostbratwurst</ListItem>
+                                </List>
                             </div>
                             <div>
-                                <Heading as={'h3'}>
+                                <Title order={3} size={'md'}>
                                     <IconHash/>
                                     Kletterhalle
-                                </Heading>
+                                </Title>
 
-                                <ul>
-                                    <li><IconCheck/> Tanzlokal & Sauna</li>
-                                    <li><IconCheck/> Duschen</li>
-                                    <li><IconCheck/> Cocktailbar</li>
-                                    <li><IconCheck/> Restaurant</li>
-                                </ul>
+                                <List
+                                    spacing="xs"
+                                    size="sm"
+                                    center
+                                    icon={<IconCheck size={24}/>}
+                                >
+                                    <ListItem>Tanzlokal & Sauna</ListItem>
+                                    <ListItem>Duschen</ListItem>
+                                    <ListItem>Cocktailbar</ListItem>
+                                    <ListItem>Restaurant</ListItem>
+                                    <ListItem>Parkplatz</ListItem>
+                                    <ListItem>Barrierefreier Zugang</ListItem>
+                                    <ListItem>Wiener Würstchen</ListItem>
+                                    <ListItem>Thüringer Rostbratwurst</ListItem>
+                                </List>
                             </div>
                             <div>
-                                <Heading as={'h3'}>
+                                <Title order={3} size={'md'}>
                                     <IconHash/>
                                     Haustiere
-                                </Heading>
+                                </Title>
 
-                                <ul>
-                                    <li><IconCheck/> Cocktailbar</li>
-                                    <li><IconCheck/> Restaurant</li>
-                                    <li><IconCheck/> Parkplatz</li>
-                                    <li><IconCheck/> Barrierefreier Zugang</li>
-                                    <li><IconCheck/> Wiener Würstchen</li>
-                                    <li><IconCheck/> Thüringer Rostbratwurst</li>
-                                </ul>
+                                <List
+                                    spacing="xs"
+                                    size="sm"
+                                    center
+                                    icon={<IconCheck size={24}/>}
+                                >
+                                    <ListItem>Tanzlokal & Sauna</ListItem>
+                                    <ListItem>Duschen</ListItem>
+                                    <ListItem>Cocktailbar</ListItem>
+                                    <ListItem>Restaurant</ListItem>
+                                    <ListItem>Parkplatz</ListItem>
+                                    <ListItem>Barrierefreier Zugang</ListItem>
+                                    <ListItem>Wiener Würstchen</ListItem>
+                                    <ListItem>Thüringer Rostbratwurst</ListItem>
+                                </List>
                             </div>
                         </div>
 
                         <div className={styles.rating}>
-                            <Heading>Rating</Heading>
+                            <Title order={2} size={'40px'}>Rating</Title>
 
                             <div className={styles.ratingInner}>
                                 <div className={styles.ratingBars}>
-                                    <Heading as={'h3'}>Gesamtbewertung</Heading>
+                                    <Title order={3}>Gesamtbewertung</Title>
                                     <ul>
                                         <li><strong>5</strong> <span></span></li>
                                         <li><strong>4</strong> <span></span></li>
@@ -332,81 +272,12 @@ export default async function Halle({params}: { params: Promise<{ slug: string }
 
                         </div>
 
-                        <div className={styles.comments}>
-                            <div className={styles.comment}>
-                                <div className={styles.stars}>
-                                    <IconStar/>
-                                    <IconStar/>
-                                    <IconStar/>
-                                    <IconStar/>
-                                    <IconStar/>
-                                </div>
-                                <p>
-                                    Auf einer Grundfläche von derzeit 1300 m² erwartet dich alles was dein Herz begehrt:
-                                    Boulderfläche auf verschiedenen Ebenen von 3,00 m bis 4,50 m Wandhöhe.
-                                </p>
-                                <div className={styles.author}>
-                                    Florian Daugalies
-                                    <span>Besucht am <time dateTime={'02.05.2024'}>02.05.2024</time></span>
-                                </div>
-                            </div>
-                            <div className={styles.comment}>
-                                <div className={styles.stars}>
-                                    <IconStar/>
-                                    <IconStar/>
-                                    <IconStar/>
-                                    <IconStar/>
-                                    <IconStar/>
-                                </div>
-                                <p>
-                                    Auf einer Grundfläche von derzeit 1300 m² erwartet dich alles was dein Herz begehrt:
-                                    Boulderfläche auf verschiedenen Ebenen von 3,00 m bis 4,50 m Wandhöhe.
-                                </p>
-                                <div className={styles.author}>
-                                    Florian Daugalies
-                                    <span>Besucht am <time dateTime={'02.05.2024'}>02.05.2024</time></span>
-                                </div>
-                            </div>
-                            <div className={styles.comment}>
-                                <div className={styles.stars}>
-                                    <IconStar/>
-                                    <IconStar/>
-                                    <IconStar/>
-                                    <IconStar/>
-                                    <IconStar/>
-                                </div>
-                                <p>
-                                    Auf einer Grundfläche von derzeit 1300 m² erwartet dich alles was dein Herz begehrt:
-                                    Boulderfläche auf verschiedenen Ebenen von 3,00 m bis 4,50 m Wandhöhe.
-                                </p>
-                                <div className={styles.author}>
-                                    Florian Daugalies
-                                    <span>Besucht am <time dateTime={'02.05.2024'}>02.05.2024</time></span>
-                                </div>
-                            </div>
-                            <div className={styles.comment}>
-                                <div className={styles.stars}>
-                                    <IconStar/>
-                                    <IconStar/>
-                                    <IconStar/>
-                                    <IconStar/>
-                                    <IconStar/>
-                                </div>
-                                <p>
-                                    Auf einer Grundfläche von derzeit 1300 m² erwartet dich alles was dein Herz begehrt:
-                                    Boulderfläche auf verschiedenen Ebenen von 3,00 m bis 4,50 m Wandhöhe.
-                                </p>
-                                <div className={styles.author}>
-                                    Florian Daugalies
-                                    <span>Besucht am <time dateTime={'02.05.2024'}>02.05.2024</time></span>
-                                </div>
-                            </div>
-
-                            <div className={styles.add}>
-                                <Heading as={'h3'}>Du hast diese Halle besucht? Dann bewerte diese Halle!</Heading>
-                                <button type={'button'}>Bewertung abgeben</button>
-                            </div>
-                        </div>
+                        <SimpleGrid cols={2} spacing={60} mt={60}>
+                            <HalleComment/>
+                            <HalleComment/>
+                            <HalleComment/>
+                            <HalleComment/>
+                        </SimpleGrid>
 
                         <div className={styles.faq}>
                             <Heading>Häufig gestellte Fragen</Heading>
@@ -495,7 +366,7 @@ export default async function Halle({params}: { params: Promise<{ slug: string }
                                         begehrt: Boulderfläche auf verschiedenen Ebenen von 3,00 m bis 4,50 m
                                         Wandhöhe.</p>
                                 </hgroup>
-                                <button type={'button'}>Bewertung abgeben</button>
+                                <Button color={'green'}>Bewertung abgeben</Button>
                             </div>
                         </div>
 
@@ -652,8 +523,6 @@ export default async function Halle({params}: { params: Promise<{ slug: string }
                     </div>
                 </Container>
             </main>
-
-
         </>
     )
 }
