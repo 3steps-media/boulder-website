@@ -1,14 +1,40 @@
 import type {Metadata} from "next";
-import HeroInner from "@/components/hero-inner/heroInner";
-import Header from "@/components/header";
-import Footer from "@/components/footer";
+import HeroInner from "@/components/sections/HeroSection/HeroInner";
+import {Box, Container, Text, Title} from "@mantine/core";
+import styles from "./page.module.scss";
 
 export default function About() {
     return (
         <>
-            <Header/>
-            <HeroInner title={'Über uns'}/>
-            <Footer/>
+            <HeroInner
+                title={'Über uns'}
+                text={'This page has dummy content'}
+            />
+
+            <section>
+                <Container size="md" mt={40}>
+                    <Box
+                        component={'article'}
+                        className={styles.PageContent}
+                    >
+                        <Title order={2}>Wer wir sind und was wir wollen</Title>
+                        <Text>Wir freuen uns, dass du auf Boulderhallen-finden.de gefunden hast! Wir - das sind Fabian,
+                            Fabian und Florian. Als begeisterte Boulderer aus dem Raum Mannheim/Heidelberg ist es uns
+                            ein Anliegen, Boulder-Fans und -Hallen in Deutschland näher zusammen zu bringen. Außerdem
+                            wollen wir das Auffinden der nächstgelegenen Boulderhalle leichter machen.</Text>
+                        <Text>Deshalb haben wir Boulderhallen-finden.de ins Leben gerufen. Hier wollen wir eine
+                            Plattform schaffen, auf der sich leidenschaftliche Boulderer sowie Boulder-Neulinge
+                            austauschen, ihre Lieblingshallen weiterempfehlen und neue Boulderhallen sichtbar werden
+                            können.</Text>
+                        <Text>So ein deutschlandweites Projekt lässt sich natürlich nicht alleine stemmen – deshalb
+                            freuen wir uns auf deine Teilnahme! Werde Teil unserer Community und empfiehl Boulderhallen,
+                            bei denen du gute Erfahrungen gemacht hast, informiere uns über Hallen, die wir hier noch
+                            nicht gelistet haben und kontaktiere uns immer gerne, wenn du Fragen oder Anregungen
+                            hast!</Text>
+                        <Text>Wir wünschen frohes Bouldern!</Text>
+                    </Box>
+                </Container>
+            </section>
         </>
     )
 }

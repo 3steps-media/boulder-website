@@ -1,13 +1,18 @@
-import type {Metadata} from "next";
-import {Inter, Space_Grotesk} from "next/font/google";
-import "./globals.css";
-import {MantineProvider, ColorSchemeScript, mantineHtmlProps} from '@mantine/core';
-import {theme} from "@/theme";
 import {
     APP_NAME,
     APP_DESCRIPTION,
     SERVER_URL
 } from "@/lib/constants";
+
+import {MantineProvider, ColorSchemeScript, mantineHtmlProps} from '@mantine/core';
+import {theme} from "@/theme";
+
+import type {Metadata} from "next";
+import {Inter, Space_Grotesk} from "next/font/google";
+import "./globals.css";
+
+import Header from "@/components/layout/Header/Header";
+import Footer from "@/components/layout/Footer/Footer";
 import MarkerIO from "@/components/marker-io";
 
 const inter = Inter({
@@ -36,10 +41,19 @@ export default function RootLayout({children,}: Readonly<{ children: React.React
             <ColorSchemeScript/>
         </head>
         <body className={`${inter.variable} ${spaceGrotesk.variable}`}>
+
         <MantineProvider theme={theme}>
+            <Header/>
             {children}
-            {process.env.MARKER_IO_PROJECT_KEY && <MarkerIO projectKey={process.env.MARKER_IO_PROJECT_KEY}/>}
+            <Footer/>
+            {
+                process.env.NEXT_ENVIRONMENT_TYPE !== "local"
+                && process.env.MARKER_IO_PROJECT_KEY
+                && <MarkerIO projectKey={process.env.MARKER_IO_PROJECT_KEY}/>
+            }
+
         </MantineProvider>
+
         </body>
         </html>
     );

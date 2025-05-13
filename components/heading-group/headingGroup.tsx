@@ -5,7 +5,7 @@ import {Text, Title} from "@mantine/core";
 
 // TODO size and as may be similar (size=h1, as=h1) but shouldn't
 type Props = {
-    heading: string;
+    heading?: string;
     text?: string;
     as?: string;
     size?: string;

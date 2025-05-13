@@ -1,7 +1,6 @@
 import type {Metadata} from "next";
-import HeroInner from "@/components/hero-inner/heroInner";
+import HeroInner from "@/components/sections/HeroSection/HeroInner";
 import {Container, Group, Stack, rem} from "@mantine/core";
-import Header from "@/components/header";
 import UIButton from "@/components/ui/ui-button";
 import {IconUserCircle} from "@tabler/icons-react";
 import Link from "next/link";
@@ -10,7 +9,6 @@ export default function UI() {
     const icon = <IconUserCircle size={16}/>;
     return (
         <>
-            <Header/>
             <HeroInner title={'UI'}/>
 
             <Container

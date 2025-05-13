@@ -85,7 +85,7 @@ export default function Place(props: PlacePops) {
             {props.data.Info && <PlaceComponent.PlaceInfo/>}
 
             <Group mt={20}>
-                <Button radius="md" style={{flex: 1}}>
+                <Button radius="md" style={{flex: 1}} >
                     Show details
                 </Button>
                 <ActionIcon variant="default" radius="xl" size={42}>

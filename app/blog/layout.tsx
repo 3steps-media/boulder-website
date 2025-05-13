@@ -1,6 +1,6 @@
 import {ReactNode} from "react";
 
-export default function HallenLayout({children}: {
+export default function BlogLayout({children}: {
     children: ReactNode
 }) {
     return (

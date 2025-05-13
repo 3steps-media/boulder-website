@@ -140,7 +140,7 @@ export default async function Halle({params}: { params: Promise<{ slug: string }
             </section>
 
             <main className={styles.main}>
-                <Container size={'xl'}>
+                <Container>
                     <div className={styles.inner}>
                         <HalleContent/>
 

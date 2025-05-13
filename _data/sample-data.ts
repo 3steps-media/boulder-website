@@ -1,5 +1,3 @@
-import {IconBabyCarriage} from '@tabler/icons-react';
-
 const SampleData = {
     cities: [
         {
@@ -115,27 +113,131 @@ const SampleData = {
     posts: [
         {
             id: 1,
+            slug: 'post-1',
             title: 'Bloc-Hütte Augsburg: Ein Geheimtipp in Bayern',
-            content: 'Wir waren wieder mal unterwegs, um euch eine weitere Boulderhalle näher zu bringen: Diesmal waren wir in der Bloc-Hütte in Augsburg.…',
-            date: '03.01.2020'
+            content: `
+                <p>Wir haben einen Urlaubstrip wieder mal mit dem Besuch von für uns etwas weiter weg gelegenen Boulderhallen verbunden. Und zwar war es diesmal die Bloc-Hütte Augsburg. Die Anfahrt war unproblematisch und die Halle ist leicht zu finden: Ihr fahrt in eine Sackgasse und bevor ihr verzweifelt die Halle sucht, seht ihr am Ende eines Geländes die große Tafel der Bloc-Hütte Augsburg.</p>
+                <p>Parkplätze gibt es reichlich direkt vor der Türe und sogar mit Parkanleitung, damit platzsparend geparkt wird und jeder einen Platz findet. Fahrräder haben hier auch einen überdachten Stellplatz, mit den öffentlichen Verkehrsmitteln müsst ihr ein paar Minuten Fußweg in Kauf nehmen.</p>
+                <h2>Bloc-Hütte Augsburg: Gemütlicher Eingangsbereich mit viel Liebe zum Detail</h2>
+                <p>Der Eingangsbereich der Bloc-Hütte Augsburg ist mit viel Holz und vielen durchdachten Kleinigkeiten, die sich als Konzept durch die ganze Halle ziehen, freundlich gestaltet. Ein direkter Blick in die Boulderhalle macht außerdem schon direkt Lust loszulegen.</p>
+                <p>Der Empfang durch das Personal war überaus freundlich, wir kamen direkt ins Gespräch mit einem Schrauber, auch dieser war sehr freundlich. Der Check-in ist unkompliziert, wer kurz warten muss, kann im angrenzenden Shop eine Runde stöbern gehen.</p>
+                <h2>Die Ausstattung der Bloc-Hütte Augsburg</h2>
+                <p>Die Sanitäranlagen der Boulderhalle sind absolut top, gepflegt und sehr hochwertig gestaltet und befinden sich im Eingangsbereich. Das Bistro ist gemütlich, es gibt ein paar Snacks und Kletternahrung, auch hier findet sich die liebevolle Gestaltung mit viel Holz wieder.</p>
+                <p>Und auch hier entdeckt man direkt ein kleines Highlight, welches wir so bisher nur ganz selten gesehen haben. Für jeden, der nach der Arbeit direkt zum Sport geht und auf sein Handy angewiesen ist, gibt es hier drei Handy-Ladeboxen.</p>
+                <p>Diese wurden selbstverständlich selbst designed und aus Holz gebaut. Eine klasse Idee, wie wir finden, so kann man während dem Genuss eines Kaffees noch sein Handy laden. Top für jeden, der nicht aufs Smartphone verzichten kann.</p>
+            `,
+            excerpt: `Wir haben einen Urlaubstrip wieder mal mit dem Besuch von für uns etwas weiter weg gelegenen Boulderhallen verbunden.`,
+            image: 'https://images.unsplash.com/photo-1527004013197-933c4bb611b3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&q=80',
+            date: '03.01.2020',
+            categories: [{
+                id: 1,
+                name: 'Marketing',
+                slug: 'marketing',
+            }],
         },
         {
             id: 2,
+            slug: 'post-2',
             title: 'LÖ bloc Boulderhalle in Grenzach-Whylen: Ein Geheimtipp nahe der schweizer Grenze!',
-            content: 'Uns hat es durch einen Tipp nach Grenzach-Whylen in die Boulderhalle LÖ bloc verschlagen. Wie unsere Erfahrungen dort waren, was uns gut gefallen hat und was euch dort erwartet, das erfahrt …',
-            date: '10.07.2019'
+            content: `
+                <p>Heute haben wir mal wieder eine neue Boulderhalle, die wir euch gerne vorstellen wollen. Durch einen Tipp hat es uns vor Kurzem nämlich in die Nähe der Schweiz verschlagen. Genau genommen nach Grenzach-Whylen in die Boulderhalle LÖ bloc. Warum wir finden, dass das LÖ bloc ein echter Geheimtipp ist, was uns besonders gut gefallen hat und was wir vielleicht noch ändern würden, das erfahrt ihr jetzt.</p>
+                <h2>Boulderhalle LÖ bloc in Grenzach-Whylen: Die Anfahrt und unser erster Eindruck</h2>
+                <p>Der Eingangsbereich der Bloc-Hütte Augsburg ist mit viel Holz und vielen durchdachten Kleinigkeiten, die sich als Konzept durch die ganze Halle ziehen, freundlich gestaltet. Ein direkter Blick in die Boulderhalle macht außerdem schon direkt Lust loszulegen.</p>
+                <p>Der Empfang durch das Personal war überaus freundlich, wir kamen direkt ins Gespräch mit einem Schrauber, auch dieser war sehr freundlich. Der Check-in ist unkompliziert, wer kurz warten muss, kann im angrenzenden Shop eine Runde stöbern gehen.</p>
+                <p>Die Sanitäranlagen der Boulderhalle sind absolut top, gepflegt und sehr hochwertig gestaltet und befinden sich im Eingangsbereich. Das Bistro ist gemütlich, es gibt ein paar Snacks und Kletternahrung, auch hier findet sich die liebevolle Gestaltung mit viel Holz wieder.</p>
+                <h2>Das Herzstück des LÖ bloc: Die Boulderhalle und ihre Routen</h2>
+                <p>Und auch hier entdeckt man direkt ein kleines Highlight, welches wir so bisher nur ganz selten gesehen haben. Für jeden, der nach der Arbeit direkt zum Sport geht und auf sein Handy angewiesen ist, gibt es hier drei Handy-Ladeboxen.</p>
+                <p>Diese wurden selbstverständlich selbst designed und aus Holz gebaut. Eine klasse Idee, wie wir finden, so kann man während dem Genuss eines Kaffees noch sein Handy laden. Top für jeden, der nicht aufs Smartphone verzichten kann.</p>
+            `,
+            excerpt: `Heute haben wir mal wieder eine neue Boulderhalle, die wir euch gerne vorstellen wollen...`,
+            image: 'https://images.unsplash.com/photo-1448375240586-882707db888b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&q=80',
+            date: '10.07.2019',
+            categories: [{
+                id: 1,
+                name: 'Marketing',
+                slug: 'marketing',
+            }, {
+                id: 2,
+                name: 'Bloc',
+                slug: 'bloc',
+            }],
         },
         {
             id: 3,
+            slug: 'post-3',
             title: 'Blockhaus Freiburg',
-            content: 'Eine Boulderspielwiese in einem alten Möbelhaus über 2 Etagen. Ein Eldorado für Boulderbergeisterte.…',
-            date: '08.04.2019'
+            content: `
+                <p>Uns hat es ins Blockhaus Freiburg verschlagen, was uns gefallen hat, was uns nicht gefallen hat und was wir euch über das Blockhaus in Freiburg zu erzählen haben erfahrt ihr hier.</p>
+                <h2>Das Blockhaus Freiburg: Die Anfahrt und unser erster Eindruck</h2>
+                <p>Der Eingangsbereich der Bloc-Hütte Augsburg ist mit viel Holz und vielen durchdachten Kleinigkeiten, die sich als Konzept durch die ganze Halle ziehen, freundlich gestaltet. Ein direkter Blick in die Boulderhalle macht außerdem schon direkt Lust loszulegen.</p>
+                <p>Der Empfang durch das Personal war überaus freundlich, wir kamen direkt ins Gespräch mit einem Schrauber, auch dieser war sehr freundlich. Der Check-in ist unkompliziert, wer kurz warten muss, kann im angrenzenden Shop eine Runde stöbern gehen.</p>
+                <h2>Der erste Eindruck drinnen gibt eine Vorstellung der Größe</h2>
+                <p>Die Sanitäranlagen der Boulderhalle sind absolut top, gepflegt und sehr hochwertig gestaltet und befinden sich im Eingangsbereich. Das Bistro ist gemütlich, es gibt ein paar Snacks und Kletternahrung, auch hier findet sich die liebevolle Gestaltung mit viel Holz wieder.</p>
+                <p>Und auch hier entdeckt man direkt ein kleines Highlight, welches wir so bisher nur ganz selten gesehen haben. Für jeden, der nach der Arbeit direkt zum Sport geht und auf sein Handy angewiesen ist, gibt es hier drei Handy-Ladeboxen.</p>
+                <p>Diese wurden selbstverständlich selbst designed und aus Holz gebaut. Eine klasse Idee, wie wir finden, so kann man während dem Genuss eines Kaffees noch sein Handy laden. Top für jeden, der nicht aufs Smartphone verzichten kann.</p>
+            `,
+            excerpt: `Uns hat es ins Blockhaus Freiburg verschlagen, was uns gefallen hat, was uns nicht gefallen hat und was wir euch über das Blockhaus in Freiburg zu erzählen haben erfahrt ihr hier.`,
+            image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&q=80',
+            date: '08.04.2019',
+            categories: [{
+                id: 3,
+                name: "Places Review",
+                slug: "places-review",
+            }]
         },
         {
             id: 4,
-            title: 'Steinzeit Boulderhalle Göppingen',
-            content: 'Auf einer Grundfläche von derzeit 1300 m² erwartet dich alles was dein Herz begehrt: Boulderfläche auf verschiedenen Ebenen von 3,00 m bis 4,50 m Wandhöhe.',
-            date: '02.04.2018'
+            slug: 'boulderhaus-mannheim',
+            title: 'Boulderhaus Mannheim - ein Spaß für jeden Sportbegeisterten',
+            content: `
+                <p>Vor einigen Wochen hatten wir euch ja bereits vom Boulderhaus Darmstadt berichtet. Diese Boulderhalle gehört zu einer Boulderhaus Kette aus Heidelberg. Ein weiterer Ableger der Kette ist das Boulderhaus in Mannheim, bei dem wir nun zu Besuch waren. Wie uns das Mannheimer Boulderhaus gefallen hat und was ihr bei einem Besuch dort erwarten könnt, das erfahrt ihr in diesem Artikel.</p>
+                <h2>Das Boulderhaus in Mannheim - Unsere Anfahrt und der erste Eindruck</h2>
+                <p>Die Anfahrt über die Autobahn und dann ein Stück durch das ehemalige Militärgelände in Mannheim war recht einfach und die Halle gut zu finden. Zusätzlich dazu gibt es hier ein gut ausgebautes ÖPNV Netz.</p>
+                <p>Die Parkmöglichkeiten vor Ort sind mehr als ausreichend, hier findet wirklich jeder selbst zu Stoßzeiten einen Parkplatz.</p>
+                <h2>Ein Boulderhaus mit Industriecharme</h2>
+                <p>Die Sanitäranlagen der Boulderhalle sind absolut top, gepflegt und sehr hochwertig gestaltet und befinden sich im Eingangsbereich. Das Bistro ist gemütlich, es gibt ein paar Snacks und Kletternahrung, auch hier findet sich die liebevolle Gestaltung mit viel Holz wieder.</p>
+                <p>Und auch hier entdeckt man direkt ein kleines Highlight, welches wir so bisher nur ganz selten gesehen haben. Für jeden, der nach der Arbeit direkt zum Sport geht und auf sein Handy angewiesen ist, gibt es hier drei Handy-Ladeboxen.</p>
+                <p>Diese wurden selbstverständlich selbst designed und aus Holz gebaut. Eine klasse Idee, wie wir finden, so kann man während dem Genuss eines Kaffees noch sein Handy laden. Top für jeden, der nicht aufs Smartphone verzichten kann.</p>
+            `,
+            excerpt: `Vor einigen Wochen hatten wir euch ja bereits vom Boulderhaus Darmstadt berichtet.`,
+            image: "https://images.unsplash.com/photo-1477554193778-9562c28588c0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=80",
+            date: '02.04.2018',
+            categories: [{
+                id: 3,
+                name: "Places Review",
+                slug: "places-review",
+            }, {
+                id: 4,
+                name: "Rechter",
+                slug: "rechter",
+            }]
+        },
+        {
+            id: 5,
+            slug: 'petz-boulderhalle-neustadt',
+            title: 'Petz Boulderhalle Neustadt: Ein Geheimtipp in der Pfalz',
+            content: `
+                <p>Heute waren wir mal wieder persönlich eine Halle besuchen. Und zwar war es die Petz Boulderhalle Neustadt an der Weinstraße. Die Anfahrt war unproblematisch und die Halle ist leicht zu finden. Eine große Aufschrift über dem Eingang zeigt euch, dass ihr hier genau richtig seid. Parkplätze gibt es reichlich direkt vor der Türe. Die Halle wurde erst Anfang 2019 eröffnet und ist vielen somit wohl noch nicht bekannt.</p>
+                <h2>Petz Boulderhalle: Gemütlicher Eingangsbereich mit Sitzgelegenheit</h2>
+                <p>Der Eingangsbereich der neuen Neustädter Boulderhalle ist einladend gestaltet. Hier fällt einem auch bereits die Liebe zum Detail auf, welche sich durch die ganze Halle zieht. Kleine Tischpflanzen sind in Chalkbags gehüllt, der Thekenbereich ist sauber und schön geordnet, die Kaffeemaschine macht direkt Lust auf den ersten Kaffee.</p>
+                <p>Der Empfang ist super freundlich, das Personal erklärt in aller Ruhe und mit viel Liebe alles, was man braucht um loszulegen.</p>
+                <h2>Kreativität auch bei den Routen der Neustädter Boulderhalle</h2>
+                <p>Die Sanitäranlagen der Boulderhalle sind absolut top, gepflegt und sehr hochwertig gestaltet und befinden sich im Eingangsbereich. Das Bistro ist gemütlich, es gibt ein paar Snacks und Kletternahrung, auch hier findet sich die liebevolle Gestaltung mit viel Holz wieder.</p>
+                <p>Und auch hier entdeckt man direkt ein kleines Highlight, welches wir so bisher nur ganz selten gesehen haben. Für jeden, der nach der Arbeit direkt zum Sport geht und auf sein Handy angewiesen ist, gibt es hier drei Handy-Ladeboxen.</p>
+                <p>Diese wurden selbstverständlich selbst designed und aus Holz gebaut. Eine klasse Idee, wie wir finden, so kann man während dem Genuss eines Kaffees noch sein Handy laden. Top für jeden, der nicht aufs Smartphone verzichten kann.</p>
+            `,
+            excerpt: `Heute waren wir mal wieder persönlich eine Halle besuchen.`,
+            image: 'https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&q=80',
+            date: '17.03.2018',
+            categories: [{
+                id: 1,
+                name: 'Marketing',
+                slug: 'marketing',
+            }, {
+                id: 3,
+                name: "Places Review",
+                slug: "places-review",
+            }]
         },
     ],
     reasons: [
