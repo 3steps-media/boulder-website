@@ -1,17 +1,22 @@
 import React from "react";
 
 import {
+    IconCash,
+    IconCurrencyHryvnia,
     IconStack2,
     IconHash,
     IconCheck,
     IconMessageCircle,
-    IconChevronRight, IconToolsKitchen3, IconBike
+    IconChevronRight, IconToolsKitchen3, IconBike, IconBrandVisa, IconBrandMastercard, IconBrandPaypal
 } from "@tabler/icons-react"
 
 import {
     Button,
     Container,
-    Group, List, ListItem, SimpleGrid,
+    Flex,
+    Group,
+    List,
+    ListItem, SimpleGrid,
     Stack,
     Text,
     Title
@@ -37,6 +42,7 @@ import styles from "./page.module.scss";
 import SampleData from "@/_data/sample-data";
 import {IHalleGallery} from "@/interfaces/halle";
 import {PlaceType} from "@/interfaces/place";
+import HalleStickyBar from "../../../components/halle/stickyBar";
 
 const hallen: PlaceType[] = SampleData.places;
 
@@ -72,6 +78,26 @@ export default async function Halle({params}: { params: Promise<{ slug: string }
         {
             image: 'https://plus.unsplash.com/premium_photo-1663932464735-e0946d833749?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
             caption: 'Captiuon #3'
+        },
+        {
+            image: 'https://images.unsplash.com/photo-1514933651103-005eec06c04b?q=80&w=2874&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+            caption: 'Captiuon #4'
+        },
+        {
+            image: 'https://images.unsplash.com/photo-1482350325005-eda5e677279b?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+            caption: 'Caption 5'
+        },
+        {
+            image: 'https://images.unsplash.com/photo-1542181961-9590d0c79dab?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+            caption: 'Caption 6'
+        },
+        {
+            image: 'https://images.unsplash.com/photo-1453614512568-c4024d13c247?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+            caption: 'Caption 7'
+        },
+        {
+            image: 'https://images.unsplash.com/photo-1508424757105-b6d5ad9329d0?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+            caption: 'Caption 8'
         }
     ]
     const mainFeatures: { icon: React.ReactNode; feature: string }[] = [
@@ -416,6 +442,19 @@ export default async function Halle({params}: { params: Promise<{ slug: string }
                                     Einsteigerkurse
                                 </dt>
                                 <dd>Vorhanden</dd>
+                                <dt>
+                                    <IconHash/>
+                                    Payment Methods
+                                </dt>
+                                <dd>
+                                    <Flex gap={16}>
+                                        <IconCash size={24}/>
+                                        <IconBrandVisa size={24}/>
+                                        <IconBrandMastercard size={24}/>
+                                        <IconBrandPaypal size={24}/>
+                                        <IconCurrencyHryvnia size={24}/>
+                                    </Flex>
+                                </dd>
                             </dl>
                         </div>
 
@@ -523,6 +562,9 @@ export default async function Halle({params}: { params: Promise<{ slug: string }
                     </div>
                 </Container>
             </main>
+            <HalleStickyBar classes={styles.StickyBar}>
+                <HalleSummary classes={styles.summary}/>
+            </HalleStickyBar>
         </>
     )
 }

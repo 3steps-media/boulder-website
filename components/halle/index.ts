@@ -5,6 +5,7 @@ import HalleGallery from "./gallery";
 import HalleLocation from "./location";
 import HalleMeta from "./meta";
 import HalleMainFeatures from "./main-features";
+import HalleStickyBar from "./stickyBar";
 import HalleSummary from "./summary";
 
 export {
@@ -15,5 +16,6 @@ export {
     HalleLocation,
     HalleMeta,
     HalleMainFeatures,
+    HalleStickyBar,
     HalleSummary
 }

@@ -25,9 +25,9 @@ import {PlaceType} from "@/interfaces/place";
 
 // CSS
 import styles from "./place.module.scss";
-import * as PlaceComponent from "@/components/place/card";
+import * as PlaceComponent from "@/components/placeCard/card";
 
-type PlacePops = {
+type PlaceCardPops = {
     item: PlaceType;
     data: PlaceData
 }
@@ -36,7 +36,7 @@ type DummyRatios = {
     [key: string]: number
 }
 
-export default function Place(props: PlacePops) {
+export default function PlaceCard(props: PlaceCardPops) {
     const place: PlaceType = props.item;
     const dummyRatios: DummyRatios = {
         square: 1,
@@ -85,7 +85,7 @@ export default function Place(props: PlacePops) {
             {props.data.Info && <PlaceComponent.PlaceInfo/>}
 
             <Group mt={20}>
-                <Button radius="md" style={{flex: 1}} >
+                <Button radius="md" style={{flex: 1}}>
                     Show details
                 </Button>
                 <ActionIcon variant="default" radius="xl" size={42}>

@@ -16,7 +16,15 @@
     border-radius: 10px;
 }
 
-.gallery {
+.GalleryImageWrap {
+    position: relative;
+
+    button {
+        position: absolute;
+        bottom: 2rem;
+        right: 2rem;
+    }
+
     a {
         display: block;
     }
@@ -455,5 +463,13 @@
                 }
             }
         }
+    }
+}
+
+.StickyBar {
+    .summary {
+        margin-top: 0;
+        box-shadow: 0 2px 15px rgba(0, 0, 0, 0.01);
+        background-color: var(--mantine-color-gray-2);
     }
 }

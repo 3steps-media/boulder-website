@@ -1,0 +1,16 @@
+.viewport {
+    padding-bottom: 3rem;
+}
+
+.indicators {
+}
+
+.indicator {
+    width: .5rem;
+    height: .5rem;
+    background-color: var(--mantine-color-blue-1);
+
+    &[data-active="true"] {
+        background-color: var(--mantine-color-blue-9)
+    }
+}

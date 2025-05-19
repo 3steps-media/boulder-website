@@ -3,6 +3,13 @@ export interface PlaceType {
     title: string;
     image: string;
     slug: string;
-    location: string;
+    location: {
+        id: number;
+        city: string;
+        url?: string;
+        address?: string;
+        lat?: number;
+        lng?: number;
+    };
     services?: (number)[]
 }

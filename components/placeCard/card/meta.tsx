@@ -11,7 +11,10 @@ import styles from "../place.module.scss";
 import {PlaceData} from "@/interfaces/settings/place";
 
 type PlaceMetaProps = {
-    location: string;
+    location: {
+        id: number;
+        city: string;
+    };
     className?: string;
 } & PlaceData
 
@@ -37,7 +40,7 @@ export default function PlaceMeta(props: PlaceMetaProps) {
                 className={styles.location}
             >
                 <IconMapPin width={20} height={20}/>
-                <Text fz={15}>{props.location}</Text>
+                <Text fz={15}>{props.location.city}</Text>
             </Flex>
 
             {

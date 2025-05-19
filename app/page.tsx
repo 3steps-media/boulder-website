@@ -4,11 +4,12 @@ import SampleData from "@/_data/sample-data";
 
 import Hero from "@/components/sections/HeroSection/Hero";
 import Cities from "@/components/sections/CitiesSection/Cities";
-import BestPlaces from "@/components/best-places/bestPlaces";
+import CarouselSection from "@/components/sections/CarouselSection/CarouselSection";
 import Reasons from "@/components/reasons";
 import FAQ from "@/components/faq/faq";
 import RecentPosts from "@/components/sections/RecentPostsSection/RecentPosts";
 import Subscribe from "@/components/subscribe/subscribe";
+
 
 export default function Home() {
     return (
@@ -25,9 +26,9 @@ export default function Home() {
                 cities={SampleData.cities}
             />
 
-            <BestPlaces
+            <CarouselSection
                 heading={"Die bestbewerteten Boulderhallen"}
-                items={SampleData.places}
+                slides={SampleData.places}
             />
 
             <Reasons

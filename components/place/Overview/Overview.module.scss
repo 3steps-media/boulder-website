@@ -1,0 +1,26 @@
+.PlaceHero {
+    position: relative;
+    padding: 13.5rem 0 0;
+}
+
+.title {
+    font-size: 3rem;
+    line-height: 3.75rem;
+    margin: 0 0 1rem 0;
+}
+
+.meta {
+    display: inline-flex;
+    padding: .5rem 2rem .5rem 1rem;
+    border: 1px solid #EBEBEB;
+    border-radius: 10px;
+}
+
+.summary {
+    p {
+        font-size: 1rem;
+        line-height: 1.5;
+        font-weight: 300;
+        margin-bottom: 1.5rem;
+    }
+}

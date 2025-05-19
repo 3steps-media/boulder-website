@@ -1,9 +1,9 @@
 import {Pagination} from "swiper/modules";
 import {Swiper, SwiperSlide} from "swiper/react";
-import Place from "@/components/place/place";
 
 import {PlaceData} from "@/interfaces/settings/place";
 import {PlaceType} from "@/interfaces/place";
+import PlaceCard from "@/components/placeCard/place";
 
 type PlacesCarouselProps = {
     items: PlaceType[];
@@ -30,7 +30,7 @@ export default function PlacesCarousel(props: PlacesCarouselProps) {
         >
             {props.items.map((item, index: number) => (
                 <SwiperSlide key={index}>
-                    <Place item={item} data={props.placeData}/>
+                    <PlaceCard item={item} data={props.placeData}/>
                 </SwiperSlide>
             ))}
         </Swiper>

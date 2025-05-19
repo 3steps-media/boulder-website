@@ -2,7 +2,7 @@ import type {Metadata} from "next";
 import HeroInner from "@/components/sections/HeroSection/HeroInner";
 import {Container, SimpleGrid} from "@mantine/core";
 import SampleData from "@/_data/sample-data";
-import Place from "@/components/place/place";
+import Place from "@/components/placeCard/place";
 
 export default function Hallen() {
 

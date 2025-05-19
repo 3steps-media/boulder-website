@@ -1,3 +1,11 @@
+const placeMeta = {
+    rating: 4.5,
+    reviews: 2,
+    url: '#',
+    facebook: '#',
+    x: '#'
+}
+
 const SampleData = {
     cities: [
         {
@@ -57,57 +65,84 @@ const SampleData = {
             title: 'Boulderhalle Hotzenblock Waldshut-Tiengen',
             image: 'https://images.unsplash.com/photo-1514924013411-cbf25faa35bb?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8Y2l0eXxlbnwwfHwwfHx8MA%3D%3D',
             slug: 'place-1',
-            location: 'Waldshut-Tiengen',
-            rating: 4.5,
-            services: [0, 1, 2, 3, 4, 5, 6, 7]
+            location: {
+                id: 1,
+                city: 'Waldshut-Tiengen'
+            },
+            services: [0, 1, 2, 3, 4, 5, 6, 7],
+            meta: placeMeta
         },
         {
             id: 2,
             title: 'Boulderwelt München-West is a place with loooooong name fot my testing porposes only',
             image: 'https://images.unsplash.com/photo-1543872084-c7bd3822856f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGNpdHl8ZW58MHx8MHx8fDA%3D',
             slug: 'place-2',
-            location: 'München',
-            services: [0, 1, 5, 6, 7]
+            location: {
+                id: 2,
+                city: 'München'
+            },
+            services: [0, 1, 5, 6, 7],
+            meta: placeMeta
         },
         {
             id: 3,
             title: 'Studio Bloc Pfungstadt',
             image: 'https://images.unsplash.com/photo-1495954380655-01609180eda3?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGNpdHl8ZW58MHx8MHx8fDA%3D',
             slug: 'place-3',
-            location: 'Pfungstadt',
-            services: [0, 2, 4, 6]
+            location: {
+                id: 3,
+                city: 'Pfungstadt'
+            },
+            services: [0, 2, 4, 6],
+            meta: placeMeta
         },
         {
             id: 4,
             title: 'Boulderwelt Frankfurt',
             image: 'https://images.unsplash.com/photo-1502899576159-f224dc2349fa?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjN8fGNpdHl8ZW58MHx8MHx8fDA%3D',
             slug: 'place-4',
-            location: 'Frankfurt am Main',
-            services: [1, 3, 5, 7]
+            location: {
+                id: 4,
+                city: 'Frankfurt am Main'
+            },
+            services: [1, 3, 5, 7],
+            meta: placeMeta
         },
         {
             id: 5,
             title: 'Blockwerk Mainz',
             image: 'https://images.unsplash.com/photo-1465447142348-e9952c393450?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjd8fGNpdHl8ZW58MHx8MHx8fDA%3D',
             slug: 'place-5',
-            location: 'Mainz',
-            services: [0, 1, 2]
+            location: {
+                id: 5,
+                city: 'Mainz'
+            },
+            services: [0, 1, 2],
+            meta: placeMeta
         },
         {
             id: 6,
             title: 'Eifelblock Trier',
             image: 'https://images.unsplash.com/photo-1534800891164-a1d96b5114e7?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzF8fGNpdHl8ZW58MHx8MHx8fDA%3D',
             slug: 'place-6',
-            location: 'Trier',
-            services: [7]
+            location: {
+                id: 6,
+                city: 'Waldshut-Tiengen'
+            },
+            services: [7],
+            meta: placeMeta
         },
         {
             id: 7,
             title: 'Plan B Jena',
             image: 'https://images.unsplash.com/photo-1516259670444-ad07068e14e8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDB8fGNpdHl8ZW58MHx8MHx8fDA%3D',
             slug: 'place-7',
-            location: 'Jena',
-            services: [0, 1, 2, 3, 4]
+            location: {
+                id: 7,
+                city: 'Jena'
+            },
+            services: [0, 1, 2, 3, 4],
+            meta: placeMeta
         },
     ],
     posts: [

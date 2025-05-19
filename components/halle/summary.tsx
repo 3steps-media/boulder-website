@@ -12,7 +12,8 @@ export default function HalleSummary({classes}: { classes?: string }) {
                 <Flex gap={64} justify={'flex-start'} align={'center'}>
 
                     <Flex justify={'flex-start'} align={'center'} gap={16}>
-                        <ThemeIcon variant={'white'} color={"blue.9"} size={54}>
+                        <ThemeIcon variant={'white'} color={"blue.9"} size={54}
+                                   style={{boxShadow: '0px 2px 1px #00000005'}}>
                             <IconStar size={24}/>
                         </ThemeIcon>
                         <Stack gap={0}>
@@ -24,7 +25,8 @@ export default function HalleSummary({classes}: { classes?: string }) {
                     <Divider orientation={'vertical'}/>
 
                     <Flex justify={'flex-start'} align={'center'} gap={16}>
-                        <ThemeIcon variant={'white'} color={"blue.9"} size={54}>
+                        <ThemeIcon variant={'white'} color={"blue.9"} size={54}
+                                   style={{boxShadow: '0px 2px 1px #00000005'}}>
                             <IconClock size={24}/>
                         </ThemeIcon>
                         <Stack gap={0}>
@@ -36,7 +38,8 @@ export default function HalleSummary({classes}: { classes?: string }) {
                     <Divider orientation={'vertical'}/>
 
                     <Flex justify={'flex-start'} align={'center'} gap={16}>
-                        <ThemeIcon variant={'white'} color={"blue.9"} size={54}>
+                        <ThemeIcon variant={'white'} color={"blue.9"} size={54}
+                                   style={{boxShadow: '0px 2px 1px #00000005'}}>
                             <IconClock size={24}/>
                         </ThemeIcon>
                         <Stack gap={0}>
