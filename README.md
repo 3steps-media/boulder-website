@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/99053876-44d2-480b-8133-31c0d6e4b020/deploy-status)](https://app.netlify.com/projects/boulder-website-staging/deploys)
+
 # Boulderhallen
 
 The project is in progres...

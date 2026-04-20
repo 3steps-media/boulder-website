@@ -8,10 +8,11 @@ import {getPaymentMethods} from "@/domains/options/selectors/getPaymentMethods";
 export async function generateStaticParams() {
     try {
         const places = await placeApi.loadPlaceSlugsCollection();
+        console.log('Generated slugs:', places.map(p => p.slug));
 
         return places
             .filter((place) => !!place.slug)
-            .map((place) => ({slug: place.slug as string}));
+            .map((place) => ({ slug: place.slug as string }));
     } catch (e) {
         console.warn('generateStaticParams failed:', e);
         return [];
