@@ -32,6 +32,9 @@ export default async function Halle({params}: { params: Promise<{ slug: string }
         getPaymentMethods()
     ]);
 
+    if (!place) {
+        notFound();
+    }
 
     return (
         <PlacePage

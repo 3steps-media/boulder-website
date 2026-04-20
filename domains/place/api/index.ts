@@ -37,20 +37,15 @@ export const placeApi = {
     //loadPlaceCollection: async (params?: PaginationParams): Promise<Place[]> => {},
     //loadPlaceCollectionPage: async (pageParams: PageParams): Promise<Place[]> => {},
     loadPlaceSlugsCollection: async (): Promise<{ slug: string | null }[]> => {
-        try {
-            const data = await fetchFromWP<SlugsCollectionProps>(PLACE_SLUGS_COLLECTION_QUERY, {})
-            return data?.places?.nodes ?? [];
-        } catch (e) {
-            console.warn('loadPlaceSlugsCollection failed:', e);
-            return [];
-        }
+        const data = await fetchFromWP<SlugsCollectionProps>(PLACE_SLUGS_COLLECTION_QUERY, {})
+        return data?.places?.nodes ?? [];
     },
 
     // Full details
     //loadPlaceDetails: async (id: number): Promise<Place> => {},
-    loadPlaceDetailsBySlug: async (slug: string): Promise<PlaceDetailsModel> => {
+    loadPlaceDetailsBySlug: async (slug: string): Promise<PlaceDetailsModel | null> => {
         const data = await fetchFromWP<PlaceDetailsProps>(PLACE_DETAILS_QUERY, {id: slug})
-        return data.place
+        return data?.place ?? null;
     },
 
     // Preview
@@ -67,7 +62,7 @@ export const placeApi = {
         const data = await fetchFromWP<PlaceCollectionProps>(PLACE_PREVIEW_COLLECTION_QUERY, {
             first, after, last, before
         })
-        return data.places.edges;
+        return data?.places?.edges ?? [];
     },
     //loadPlacePreviewCollectionPage: async (pageParams: PageParams): Promise<Place> => {},
 
