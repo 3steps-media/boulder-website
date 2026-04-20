@@ -8,16 +8,16 @@ import {getPaymentMethods} from "@/domains/options/selectors/getPaymentMethods";
 export async function generateStaticParams() {
     const places = await placeApi.loadPlaceSlugsCollection();
 
-    return places.map((place) => ({
-        slug: place.slug
-    }));
+    return places
+        .filter((place) => !!place.slug)
+        .map((place) => ({slug: place.slug}));
 }
 
-export default async function Halle({params}: { params: { slug: string } }) {
+export default async function Halle({params}: { params: Promise<{ slug: string }> }) {
     const {slug} = await params;
 
     if (!slug) {
-        notFound()
+        notFound();
     }
 
     const [place, featured, grouped, paymentMethods] = await Promise.all([
