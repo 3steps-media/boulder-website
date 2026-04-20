@@ -1,0 +1,14 @@
+.Amenities {
+    margin-top: 3.75rem;
+}
+
+.ImportantAmenities {
+    margin-top: 2.5rem;
+    gap: 1.75rem;
+}
+
+.GroupedAmenities {
+    margin-top: 3.75rem;
+    column-gap: 6rem;
+    row-gap: 2rem;
+}

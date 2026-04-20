@@ -1,19 +1,6 @@
-.hero {
+.PlaceHero {
     position: relative;
     padding: 13.5rem 0 0;
-}
-
-.title {
-    font-size: 3rem;
-    line-height: 3.75rem;
-    margin: 0 0 1rem 0;
-}
-
-.meta {
-    display: inline-flex;
-    padding: .5rem 2rem .5rem 1rem;
-    border: 1px solid #EBEBEB;
-    border-radius: 10px;
 }
 
 .GalleryImageWrap {
@@ -36,6 +23,42 @@
         min-width: 100%;
         border-radius: 1rem;
     }
+}
+
+.Snapshot {
+    background-color: var(--theme-color-bglight);
+    border-radius: 1rem;
+    padding: 1.5rem 4rem;
+    margin-top: 2rem;
+    color: var(--theme-color-typography);
+
+    &.SnapshotSticky {
+        margin-top: 0;
+        padding: .5rem 4rem;
+        box-shadow: -10px 0 15px rgba(0, 0, 0, 0.1);
+        border-top: 1px solid var(--theme-color-border);
+        border-radius: 0;
+    }
+}
+
+.SnapshotIcon {
+    box-shadow: 0 2px 1px #00000005;
+    color: var(--theme-color-heading);
+}
+
+.ContentWrap {
+    margin-top: 3.75rem;
+}
+
+.ContentStack {
+    --ContentStack-offset: 4.5rem;
+    padding-left: var(--ContentStack-offset);
+    max-width: calc(75rem + var(--ContentStack-offset));
+}
+
+.GalleryGrid {
+    margin-top: 7.5rem;
+    gap: 4.5rem;
 }
 
 .summary {
@@ -96,7 +119,6 @@
         }
     }
 }
-
 
 .main {
     .inner {
@@ -463,13 +485,5 @@
                 }
             }
         }
-    }
-}
-
-.StickyBar {
-    .summary {
-        margin-top: 0;
-        box-shadow: 0 2px 15px rgba(0, 0, 0, 0.01);
-        background-color: var(--mantine-color-gray-2);
     }
 }

@@ -1,6 +1,6 @@
 import { City } from '@/types/models';
 
-export interface CityProps {
+export interface CityModel {
     city: City;
 }
 

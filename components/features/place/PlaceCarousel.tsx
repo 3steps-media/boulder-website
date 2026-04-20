@@ -1,17 +1,18 @@
 import {Carousel, CarouselSlide} from '@mantine/carousel';
-import PlaceCard from "@/components/features/place/PlaceCard";
+import PlacePreview from "@/domains/place/components/PlacePreview";
 
 import styles from './PlaceCarousel.module.scss';
-import {Place} from "@/types/models";
+import {PlacePreviewModel} from "@/domains/place/types";
+import {CarouselSlideProps, CarouselSlidesProps} from "@/components/sections/CarouselSection/types";
 
-type PlaceCarouselProps = {
-    slides: Place[];
-}
+export default function PlaceCarousel({slides}: CarouselSlidesProps<PlacePreviewModel>) {
+    if (!slides || slides.length === 0) {
+        return null;
+    }
 
-export default function PlaceCarousel({slides}: PlaceCarouselProps) {
     return (
         <Carousel
-            withControls={false}
+            withControls={true}
             withIndicators
             slideSize={{base: '100%', sm: '50%', lg: '27rem'}}
             slideGap={{base: 0, sm: 'md', lg: 'xl'}}
@@ -20,13 +21,15 @@ export default function PlaceCarousel({slides}: PlaceCarouselProps) {
             flex={1}
             classNames={{
                 viewport: styles.viewport,
+                controls: styles.controls,
+                control: styles.control,
                 indicators: styles.indicators,
                 indicator: styles.indicator
             }}
         >
-            {slides.map((slide: Place) => (
-                <CarouselSlide key={slide.title}>
-                    <PlaceCard place={slide}/>
+            {slides.map((slide: CarouselSlideProps<PlacePreviewModel>) => (
+                <CarouselSlide key={slide.cursor}>
+                    <PlacePreview place={slide.node}/>
                 </CarouselSlide>
             ))}
         </Carousel>

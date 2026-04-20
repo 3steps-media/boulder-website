@@ -2,13 +2,12 @@ import {AspectRatio, BackgroundImage, Badge, Box, Flex} from "@mantine/core";
 import Link from "next/link";
 
 import styles from "./cities.module.scss";
-import {CityProps} from "./types";
+import {CityModel} from "./types";
 
-export default function City({city}: CityProps) {
+export default function City({city}: CityModel) {
     return (
-        <Box
+        <Link
             className={styles.city}
-            component={Link}
             href={city.slug}
         >
             <AspectRatio ratio={1}>
@@ -34,6 +33,6 @@ export default function City({city}: CityProps) {
                     </Flex>
                 </BackgroundImage>
             </AspectRatio>
-        </Box>
+        </Link>
     )
 }

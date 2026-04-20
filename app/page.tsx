@@ -9,9 +9,12 @@ import Reasons from "@/components/reasons";
 import FAQ from "@/components/faq/faq";
 import RecentPosts from "@/components/sections/RecentPostsSection/RecentPosts";
 import Subscribe from "@/components/subscribe/subscribe";
+import {placeApi} from "@/domains/place/api";
 
 
-export default function Home() {
+export default async function Home() {
+    const slides = await placeApi.loadPlacePreviewCollection();
+
     return (
         <main className={styles.main}>
             <Hero
@@ -28,7 +31,7 @@ export default function Home() {
 
             <CarouselSection
                 heading={"Die bestbewerteten Boulderhallen"}
-                slides={SampleData.places}
+                slides={slides}
             />
 
             <Reasons

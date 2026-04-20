@@ -1,6 +1,7 @@
 import {Button, Container, Flex, Stack, Title, Text} from "@mantine/core";
 import Link from "next/link";
 import {IconArrowRight} from '@tabler/icons-react'
+import {LinkButton} from "@/components/ui/LinkButton";
 
 export default function NotFoundPage() {
     return (
@@ -22,15 +23,15 @@ export default function NotFoundPage() {
                         You may have mistyped the address, or the page has been moved to another URL.<br/>
                         If you think this is an error contact support.
                     </Text>
-                    <Button
-                        size="md"
-                        component={Link}
+
+                    <LinkButton
                         href={'/'}
                         mt={'lg'}
-                        rightSection={<IconArrowRight size={16}/>}
-                    >
+                        rightSection={<IconArrowRight size={16}/>
+                        }>
                         Take me back to home page
-                    </Button>
+                    </LinkButton>
+
                 </Stack>
             </Flex>
         </Container>

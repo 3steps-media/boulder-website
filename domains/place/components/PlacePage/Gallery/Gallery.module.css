@@ -1,0 +1,50 @@
+.Gallery {
+
+}
+
+.GalleryImageColumn {
+    position: relative;
+}
+
+.GalleryImageWrap {
+    position: relative;
+
+    button {
+        position: absolute;
+        bottom: 2rem;
+        right: 2rem;
+    }
+
+    a {
+        display: block;
+    }
+
+    img {
+        display: block;
+        object-fit: cover;
+        width: 100%;
+        min-width: 100%;
+        border-radius: 1rem;
+        transition: filter .3s ease-in-out;
+    }
+
+    &:hover {
+        img {
+            filter: brightness(0.5);
+            cursor: pointer;
+        }
+    }
+}
+
+.GalleryImage {
+    display: block;
+}
+
+.GalleryImageButton {
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+    border-radius: 3rem;
+    padding: .75rem 2.25rem .75rem 1.4rem;
+    font-size: .75rem;
+}

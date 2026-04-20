@@ -1,10 +1,15 @@
 "use client";
 
 import {
-    Container,
+    Accordion,
+    ActionIcon,
     Button,
+    Container,
     createTheme,
-    rem, ActionIcon, Rating, Accordion
+    Divider,
+    Rating,
+    rem,
+    CSSVariablesResolver
 } from "@mantine/core";
 
 // TODO SOME STRANGE SHIT HERE
@@ -18,48 +23,43 @@ const CONTAINER_SIZES: Record<string, number> = {
     lg: 1200,
     xl: 1440,
     xxl: 1600,
-};
+} as const;
+
+/**
+ * Color names by HEX
+ * @link https://coolors.co
+ */
+
+const PALETTE: Record<string, string> = {
+    brightSnow: '#F8F8F8',
+    carbonBlack: '#1D1D1D',
+    charcoal: '#57575C',
+    deepSpaceBlue: '#12334D',
+    gunmetal: '#434343',
+    oceanBlue: '#0088CC',
+    platinum: '#EBEBEB',
+    sunflowerGold: '#ffc655',
+    turquoise: '#1FD1C1',
+} as const;
+
+/**
+ * Theme color variables
+ * @code var(--theme-color-COLOR)
+ */
+const COLORS: Record<string, string> = {
+    link: PALETTE.deepSpaceBlue,
+    hover: PALETTE.oceanBlue,
+    heading: PALETTE.deepSpaceBlue,
+    typography: PALETTE.carbonBlack,
+    dimmed: PALETTE.charcoal,
+    accent: PALETTE.sunflowerGold,
+    amenity: PALETTE.gunmetal,
+    border: PALETTE.platinum,
+    bglight: PALETTE.brightSnow
+} as const;
 
 export const theme = createTheme({
-    colors: {
-        yellow: [
-            '#ffeed0',
-            '#ffdb88',
-            '#ffc655', // yellow.2
-            '#ffaa20',
-            '#f98707',
-            '#dd6102',
-            '#b74106',
-            '#94310c',
-            '#7a2a0d',
-            '#461302',
-            '#442e00',
-        ],
-        blue: [
-            '#dcf5ff',
-            '#b2edff',
-            '#6de2ff',
-            '#20d3ff',
-            '#00beff',
-            '#0099df',
-            '#0079b4',
-            '#006795',
-            '#00547a',
-            '#00344f', // blue.9
-        ],
-        green: [
-            '#c9fef5',
-            '#93fcec',
-            '#55f3e0',
-            '#1fd1c1', // green.3
-            '#0ac2b5',
-            '#059c94',
-            '#097c77',
-            '#0c6360',
-            '#0f524f',
-            '#013132',
-        ],
-    },
+    colors: {},
     fontFamily: 'Inter',
     autoContrast: true,
     headings: {
@@ -96,28 +96,6 @@ export const theme = createTheme({
         xl: '1.6',
     },
     components: {
-        Container: Container.extend({
-            defaultProps: {
-                size: 'xxl'
-            },
-            vars: (_, {size, fluid}) => ({
-                root: {
-                    '--container-size': fluid
-                        ? '100%'
-                        : size !== undefined && size in CONTAINER_SIZES
-                            ? rem(CONTAINER_SIZES[size])
-                            : rem(size),
-                },
-            }),
-        }),
-        ActionIcon: ActionIcon.extend({
-            defaultProps: {
-                autoContrast: true,
-                color: 'blue',
-                radius: 'xs',
-                variant: 'filled',
-            },
-        }),
         Accordion: Accordion.extend({
             classNames: {
                 root: styles.root,
@@ -131,13 +109,21 @@ export const theme = createTheme({
                 content: styles.content,
             }
         }),
-        Button: Button.extend({
+        ActionIcon: ActionIcon.extend({
             defaultProps: {
                 autoContrast: true,
                 color: 'blue',
+                radius: 'xs',
+                variant: 'filled',
+            },
+        }),
+        Button: Button.extend({
+            defaultProps: {
+                autoContrast: true,
+                color: COLORS.link,
                 fw: '500',
                 radius: 'sm',
-                variant: 'filled',
+                variant: 'filled'
             },
             vars: (theme, props) => {
                 const BUTTON_DEFAULTS: Record<string, string> = {}
@@ -157,10 +143,39 @@ export const theme = createTheme({
                 };
             }
         }),
+        Container: Container.extend({
+            defaultProps: {
+                size: 'xxl'
+            },
+            vars: (_, {size, fluid}) => ({
+                root: {
+                    '--container-size': fluid
+                        ? '100%'
+                        : size !== undefined && size in CONTAINER_SIZES
+                            ? rem(CONTAINER_SIZES[size])
+                            : rem(size),
+                },
+            }),
+        }),
+        Divider: Divider.extend({
+            defaultProps: {
+                color: COLORS.border,
+                orientation: "vertical"
+            }
+        }),
         Rating: Rating.extend({
             defaultProps: {
-                color: 'yellow.2'
+                color: COLORS.accent,
             },
         }),
-    }
+    },
+    other: {COLORS},
+});
+
+export const resolver: CSSVariablesResolver = (theme) => ({
+    variables: Object.fromEntries(
+        Object.entries(COLORS).map(([key, val]) => [`--theme-color-${key}`, val])
+    ),
+    light: {},
+    dark: {},
 });

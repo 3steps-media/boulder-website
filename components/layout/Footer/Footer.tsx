@@ -1,5 +1,4 @@
 import {
-    ActionIcon,
     Container,
     Group,
     Text,
@@ -14,6 +13,7 @@ import {
     IconBrandYoutube,
     IconBrandX
 } from "@tabler/icons-react"
+import {LinkActionIcon} from "@/components/ui/LinkActionIcon";
 import FooterMenu from "./FooterMenu";
 
 import styles from './footer.module.scss';
@@ -39,7 +39,7 @@ export default function Footer() {
         }
     ];
     const links = [
-        {label: "Impressum", link: "#"},
+        {label: "Impressum", link: "/about"},
         {label: "Datenschutz", link: "#"},
         {label: "Disclaimer", link: "#"},
     ]
@@ -79,16 +79,15 @@ export default function Footer() {
                         >
                             {
                                 socials.map((item, index) => (
-                                    <ActionIcon
+                                    <LinkActionIcon
                                         key={index}
-                                        component={NextLink}
                                         href={item.link}
                                         radius={'xl'}
                                         size={32}
                                         color={'gray.2'}
                                     >
                                         {item.icon}
-                                    </ActionIcon>
+                                    </LinkActionIcon>
                                 ))
                             }
                         </Group>

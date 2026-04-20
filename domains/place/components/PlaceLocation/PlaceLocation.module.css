@@ -1,0 +1,24 @@
+.PlaceLocation {
+    font-size: 15px;
+    color: var(--theme-color-dimmed);
+
+    svg {
+        opacity: 0.5;
+    }
+
+    span {
+        position: relative;
+        max-width: 150px;
+    }
+}
+
+.PlaceLocationWrap {
+    display: inline-block;
+    text-decoration: none;
+
+    &:hover {
+        .PlaceLocation {
+            color: var(--theme-color-hover);
+        }
+    }
+}

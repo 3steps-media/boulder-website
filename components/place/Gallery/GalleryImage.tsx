@@ -1,45 +1,68 @@
 "use client";
 
-import {Box, Button, Grid} from "@mantine/core";
-import NextImage from "next/image";
+import {AspectRatio, AspectRatioProps, Box, Button, Grid, GridColProps, Image} from "@mantine/core";
 import {IconLayoutGrid} from "@tabler/icons-react";
-import styles from "./Gallery.module.scss";
-import Fancybox from "@/components/fancybox/Fancybox";
 
-type GalleryImageProps = {
-    item: {
-        image: string;
-        caption?: string;
-    };
-    index: number;
+import {placeUtils} from "@/domains/place/utils";
+
+import styles from "./Gallery.module.scss";
+
+import {MediaModel} from "@/domains/place/types";
+
+type GalleryImageProps = AspectRatioProps & GridColProps & {
+    item: MediaModel;
+    mediaSize?: 'thumbnail' | 'medium' | 'large';
+    ratio?: number;
+    width?: number
+    height?: number;
+    showButton?: boolean;
+    dataFancybox?: string,
+    onClick?: () => void
 }
 
-export default function GalleryImage({item, index}: GalleryImageProps) {
+export default function GalleryImage(props: GalleryImageProps) {
+    const {
+        item,
+        mediaSize,
+        ratio,
+        span,
+        order,
+        offset,
+        width,
+        height,
+        dataFancybox,
+        showButton = false,
+        onClick
+    } = props;
+    const imageUrl = placeUtils.getMediaUrl(item, (mediaSize ?? 'large'));
+    const largeImageUrl = placeUtils.getMediaUrl(item, ('large'));
+    const imageAltText = placeUtils.getMediaAltText(item);
+
     return (
-        <Grid.Col span={(index !== 0) ? 6 : 12}>
-            <Box className={styles.GalleryImageWrap}>
-                <Box component={'a'}
-                     href={item.image}
-                     data-fancybox="gallery"
-                     data-caption={item.caption}
-                >
-                    {/* TODO Maybe AspectRatio */}
-                    <NextImage
-                        src={item.image}
-                        alt={''}
-                        width={800}
-                        height={(index > 0 && index < 3) ? 240 : 600}
+        <Grid.Col span={span} pos={'relative'}>
+            <Box
+                className={styles.GalleryImageWrap}
+                component={dataFancybox ? 'a' : undefined}
+                href={dataFancybox ? largeImageUrl : undefined}
+                data-fancybox={dataFancybox}
+            >
+                <AspectRatio ratio={ratio}>
+                    <Image
+                        src={imageUrl}
+                        alt={imageAltText ?? ''}
                     />
-                </Box>
-                {index === 0 &&
-                    <Button
-                        leftSection={<IconLayoutGrid size={16}/>}
-                        onClick={() => Fancybox.bind('[data-fancybox="gallery"]')}
-                    >
-                        Alle Fotos anzeigen
-                    </Button>
-                }
+                </AspectRatio>
             </Box>
+
+            {showButton &&
+                <Button
+                    variant="white"
+                    leftSection={<IconLayoutGrid size={16}/>}
+                    onClick={onClick}
+                >
+                    Alle Fotos anzeigen
+                </Button>
+            }
         </Grid.Col>
     );
 }

@@ -5,10 +5,11 @@ import {
 } from "@/lib/constants";
 
 import {MantineProvider, ColorSchemeScript, mantineHtmlProps} from '@mantine/core';
-import {theme} from "@/theme";
+import {resolver, theme} from "@/theme";
 
 import type {Metadata} from "next";
 import {Inter, Space_Grotesk} from "next/font/google";
+import "@fancyapps/ui/dist/fancybox/fancybox.css";
 import "./globals.css";
 
 import Header from "@/components/layout/Header/Header";
@@ -17,6 +18,7 @@ import MarkerIO from "@/components/marker-io";
 
 const inter = Inter({
     variable: "--font-inter",
+    style: ['normal', 'italic'],
     subsets: ['latin'],
 });
 
@@ -42,7 +44,7 @@ export default function RootLayout({children,}: Readonly<{ children: React.React
         </head>
         <body className={`${inter.variable} ${spaceGrotesk.variable}`}>
 
-        <MantineProvider theme={theme}>
+        <MantineProvider theme={theme} cssVariablesResolver={resolver}>
             <Header/>
             {children}
             <Footer/>

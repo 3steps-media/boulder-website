@@ -1,24 +1,14 @@
 import type {Metadata} from "next";
-import HeroInner from "@/components/sections/HeroSection/HeroInner";
+
 import {Container, SimpleGrid} from "@mantine/core";
-import SampleData from "@/_data/sample-data";
-import Place from "@/components/placeCard/place";
+import HeroInner from "@/components/sections/HeroSection/HeroInner";
+import {placeApi} from "@/domains/place/api";
+import PlacePreview from "@/domains/place/components/PlacePreview";
+import {PlacePreviewCollectionEdgeModel} from "@/domains/place/types";
 
-export default function Hallen() {
+export default async function Hallen() {
 
-    const places = SampleData.places;
-    const data = {
-        Ratio: 'square',
-        TitleHeight: 1,
-        Services: false,
-        Info: true,
-        MetaPosition: false,
-        MetaAlignment: 'top',
-        MetaOrder: false,
-        Rating: {
-            Type: 'stars'
-        }
-    }
+    const places: PlacePreviewCollectionEdgeModel[] = await placeApi.loadPlacePreviewCollection(50);
 
     return (
         <>
@@ -26,21 +16,20 @@ export default function Hallen() {
 
             <section>
                 <Container>
-                    <SimpleGrid
-                        cols={{base: 1, md: 4}}
-                        spacing="lg"
-                        mt={30}
-                    >
+                    {places &&
+                        <SimpleGrid
+                            cols={{base: 1, md: 4}}
+                            spacing="lg"
+                            mt={30}
+                        >
+                            {places.map((place: PlacePreviewCollectionEdgeModel) => (
+                                <PlacePreview
+                                    key={place.cursor}
+                                    place={place.node}/>
+                            ))}
 
-                        {places.map((place, i) => (
-                            <Place
-                                key={i}
-                                item={place}
-                                data={data}
-                            />
-                        ))}
-
-                    </SimpleGrid>
+                        </SimpleGrid>
+                    }
                 </Container>
             </section>
         </>

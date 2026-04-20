@@ -6,11 +6,6 @@
 
 @layer default {
     :root {
-        --theme-color-accent: var(--mantine-color-yellow-2);
-        --theme-color-link: var(--mantine-color-blue-9);
-        --theme-color-link-hover: var(--mantine-color-yellow-2);
-
-
         font-synthesis: none;
         text-rendering: optimizeLegibility;
         -webkit-font-smoothing: antialiased;
@@ -32,8 +27,22 @@
     input {
         line-height: 1em;
     }
-}
 
+    a:not([class*="mantine-Button-root"]) {
+        color: var(--theme-color-link);
+        text-decoration: none;
+        transition: color .2s ease-in-out;
+
+        &:hover {
+            color: var(--theme-color-hover);
+        }
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        color: var(--theme-color-heading);
+        font-weight: 600;
+    }
+}
 
 @layer vendor {
     .swiper-slide {

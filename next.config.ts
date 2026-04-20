@@ -4,7 +4,28 @@ const nextConfig: NextConfig = {
     /* config options here */
     //output: 'export',
     images: {
+        unoptimized: process.env.NODE_ENV === 'development',
         remotePatterns: [
+            {
+                protocol: 'http',
+                hostname: 'localhost',
+                port: '10022',
+            },
+            {
+                protocol: 'http',
+                hostname: '127.0.0.1',
+                port: '10022',
+            },
+            {
+                protocol: 'https',
+                hostname: '*.krapan.net',
+                port: '',
+            },
+            {
+                protocol: 'https',
+                hostname: '*.boulderingplaces.com',
+                port: '',
+            },
             {
                 protocol: 'https',
                 hostname: '*.unsplash.com',

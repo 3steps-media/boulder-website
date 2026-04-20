@@ -1,0 +1,31 @@
+.Typography {
+    font-size: 1rem;
+    line-height: 1.5;
+    font-weight: 300;
+    color: var(--theme-typography-color);
+
+    strong, b {
+        font-weight: 700;
+    }
+
+    em, i {
+        font-style: italic;
+    }
+
+    & > * {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    & > * + * {
+        margin-top: 1.5rem;
+    }
+
+    p {
+
+    }
+
+    ul, ol {
+
+    }
+}

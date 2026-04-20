@@ -2,15 +2,30 @@
     padding-bottom: 3rem;
 }
 
+.controls {
+    max-width: 100rem;
+    margin-inline: auto;
+}
+
+.control {
+    --carousel-control-size: 3rem;
+
+    background-color: var(--mantine-color-blue-9);
+    color: var(--mantine-color-white);
+    border: none;
+}
+
 .indicators {
 }
 
 .indicator {
     width: .5rem;
     height: .5rem;
-    background-color: var(--mantine-color-blue-1);
+    background-color: var(--mantine-color-blue-7);
+    transition: all 250ms linear;
 
-    &[data-active="true"] {
+    &[data-active] {
+        width: 4rem;
         background-color: var(--mantine-color-blue-9)
     }
 }

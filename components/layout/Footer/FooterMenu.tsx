@@ -1,5 +1,5 @@
-import {Box, Stack, Title} from "@mantine/core";
-import NextLink from "next/link";
+import {Stack, Title} from "@mantine/core";
+import {LinkAnchor} from "@/components/ui/LinkAnchor";
 
 type FooterMenuProps = {
     title?: string;
@@ -19,14 +19,13 @@ export default function FooterMenu(props: FooterMenuProps) {
                 <Stack gap={8}>
                     {
                         props.menu.map((menu, index) => (
-                            <Box
+                            <LinkAnchor
                                 key={index}
-                                component={NextLink}
                                 href={menu.link}
                                 fz={'sm'}
                             >
                                 {menu.label}
-                            </Box>
+                            </LinkAnchor>
                         ))
                     }
                 </Stack>

@@ -1,0 +1,39 @@
+.OverviewHeading {
+    font-size: 3rem;
+    line-height: 3.75rem;
+    margin: 0 0 1rem 0;
+    color: var(--theme-color-heading);
+    font-weight: 600;
+}
+
+.OverviewMetaContainer {
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.OverviewMetaUrls {
+    display: inline-flex;
+    align-items: center;
+    gap: 3rem;
+    padding: .5rem 1rem .5rem 1rem;
+    border: 1px solid var(--theme-color-border);
+    border-radius: 10px;
+    min-height: 58px;
+}
+
+.OverviewMetaLikeButton {
+    border-color: var(--theme-color-border);
+}
+
+.FeaturedAmenities {
+    gap: 2rem;
+    margin-top: 2.75rem;
+}
+
+.FeaturedAmenitiesItem {
+    p {
+        font-size: .75rem;
+    }
+}

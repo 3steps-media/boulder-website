@@ -21,11 +21,10 @@ export default function RecentPost(props: RecentPostProps) {
                 className={styles.post}
             >
 
-                <Box
-                    component={NextLink}
+                <NextLink
                     href={`/blog/${props.post.slug}`}
-                    mih={'100%'}
                     className={styles.link}
+                    style={{minHeight: '100%'}}
                 >
                     <Stack
                         gap={24}
@@ -50,7 +49,7 @@ export default function RecentPost(props: RecentPostProps) {
                             }
                         </Group>
                     </Stack>
-                </Box>
+                </NextLink>
 
             </Card>
         </>

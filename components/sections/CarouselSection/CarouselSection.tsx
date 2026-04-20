@@ -3,10 +3,10 @@ import PlaceCarousel from "@/components/features/place/PlaceCarousel";
 
 import styles from './styles.module.scss';
 import {CarouselSectionProps} from "./types";
-import {Place} from "@/types/models";
+import {PlacePreviewModel} from "@/domains/place/types"
 
 
-export default function CarouselSection({heading, slides}: CarouselSectionProps<Place>) {
+export default function CarouselSection({heading, slides}: CarouselSectionProps<PlacePreviewModel>) {
     return (
         <section className={styles.CarouselSection}>
             {heading &&
@@ -17,9 +17,7 @@ export default function CarouselSection({heading, slides}: CarouselSectionProps<
 
             {slides &&
                 <Box className={styles.CarouselWrap}>
-                    <PlaceCarousel
-                        slides={slides}
-                    />
+                    <PlaceCarousel slides={slides}/>
                 </Box>
             }
         </section>

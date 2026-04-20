@@ -4,8 +4,13 @@ import {Container, Group, Stack, rem} from "@mantine/core";
 import UIButton from "@/components/ui/ui-button";
 import {IconUserCircle} from "@tabler/icons-react";
 import Link from "next/link";
+import {placeApi} from "@/domains/place/api";
 
-export default function UI() {
+export default async function UI() {
+
+    const places = await placeApi.loadPlacePreviewCollection();
+    console.log(places)
+
     const icon = <IconUserCircle size={16}/>;
     return (
         <>
