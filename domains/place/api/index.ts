@@ -9,7 +9,7 @@ import {
 type SlugsCollectionProps = {
     places: {
         nodes: {
-            slug: string;
+            slug: string | null;
         }[]
     }
 }
@@ -36,9 +36,14 @@ export const placeApi = {
     // Collection
     //loadPlaceCollection: async (params?: PaginationParams): Promise<Place[]> => {},
     //loadPlaceCollectionPage: async (pageParams: PageParams): Promise<Place[]> => {},
-    loadPlaceSlugsCollection: async (): Promise<Record<string, string>[]> => {
-        const data = await fetchFromWP<SlugsCollectionProps>(PLACE_SLUGS_COLLECTION_QUERY, {})
-        return data.places.nodes;
+    loadPlaceSlugsCollection: async (): Promise<{ slug: string | null }[]> => {
+        try {
+            const data = await fetchFromWP<SlugsCollectionProps>(PLACE_SLUGS_COLLECTION_QUERY, {})
+            return data?.places?.nodes ?? [];
+        } catch (e) {
+            console.warn('loadPlaceSlugsCollection failed:', e);
+            return [];
+        }
     },
 
     // Full details
@@ -55,7 +60,7 @@ export const placeApi = {
         limit: number = 10,
         direction: 'prev' | 'next' = 'next',
         cursor?: string
-    ):Promise<PlacePreviewCollectionEdgeModel[]> => {
+    ): Promise<PlacePreviewCollectionEdgeModel[]> => {
         const {first, after, last, before}: CollectionProps = direction === 'next'
             ? {first: limit, after: cursor}
             : {last: limit, after: cursor}

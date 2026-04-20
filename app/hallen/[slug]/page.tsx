@@ -6,11 +6,16 @@ import PlacePage from "@/domains/place/components/PlacePage/PlacePage";
 import {getPaymentMethods} from "@/domains/options/selectors/getPaymentMethods";
 
 export async function generateStaticParams() {
-    const places = await placeApi.loadPlaceSlugsCollection();
+    try {
+        const places = await placeApi.loadPlaceSlugsCollection();
 
-    return places
-        .filter((place) => !!place.slug)
-        .map((place) => ({slug: place.slug}));
+        return places
+            .filter((place) => !!place.slug)
+            .map((place) => ({slug: place.slug as string}));
+    } catch (e) {
+        console.warn('generateStaticParams failed:', e);
+        return [];
+    }
 }
 
 export default async function Halle({params}: { params: Promise<{ slug: string }> }) {
