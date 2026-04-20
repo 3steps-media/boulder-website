@@ -1,6 +1,6 @@
-import {fetchFromWP} from "@/lib/wordpress/fetch";
-import {GET_ALL_PLACES} from "@/lib/wordpress/queries/place/getAllPlaces";
-import {GET_PLACE_CARD, GET_PLACE_CARDS} from "@/lib/wordpress/queries/place/getPlaceCard";
+// import {fetchFromWP} from "@/lib/wordpress/fetch";
+// import {GET_ALL_PLACES} from "@/lib/wordpress/queries/place/getAllPlaces";
+// import {GET_PLACE_CARD, GET_PLACE_CARDS} from "@/lib/wordpress/queries/place/getPlaceCard";
 
 // 1. Move to @/types/models.ts
 // 2. Decide is it necessary to make such Media... structure
@@ -77,27 +77,27 @@ type GetPlaceResponse = {
     place: Place
 }
 
-export async function getAllPlaces() {
-    const data = await fetchFromWP<GetAllPlacesResponse>(GET_ALL_PLACES, {})
-    return data.places.nodes;
-}
-
-export async function getPlaceCardById($id: number) {
-    const data = await fetchFromWP<GetPlaceResponse>(GET_PLACE_CARD, {id: $id})
-    return data.place;
-}
-
-export async function getPlacesAsCards(
-    $first: number = 10,
-    $last?: number,
-    $before?: number,
-    $after?: number,
-) {
-    const data = await fetchFromWP<GetAllPlacesResponse>(GET_PLACE_CARDS, {
-        first: $first,
-        last: $last,
-        before: $before,
-        after: $after,
-    })
-    return data.places;
-}
+// export async function getAllPlaces() {
+//     const data = await fetchFromWP<GetAllPlacesResponse>(GET_ALL_PLACES, {})
+//     return data.places.nodes;
+// }
+//
+// export async function getPlaceCardById($id: number) {
+//     const data = await fetchFromWP<GetPlaceResponse>(GET_PLACE_CARD, {id: $id})
+//     return data.place;
+// }
+//
+// export async function getPlacesAsCards(
+//     $first: number = 10,
+//     $last?: number,
+//     $before?: number,
+//     $after?: number,
+// ) {
+//     const data = await fetchFromWP<GetAllPlacesResponse>(GET_PLACE_CARDS, {
+//         first: $first,
+//         last: $last,
+//         before: $before,
+//         after: $after,
+//     })
+//     return data.places;
+// }

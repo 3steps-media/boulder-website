@@ -2,9 +2,13 @@ import {AspectRatio, BackgroundImage, Badge, Box, Flex} from "@mantine/core";
 import Link from "next/link";
 
 import styles from "./cities.module.scss";
-import {CityModel} from "./types";
+import {CityModel} from "@/domains/city/types";
 
-export default function City({city}: CityModel) {
+type CityProps = {
+    city: CityModel;
+}
+
+export default function City({city}: CityProps) {
     return (
         <Link
             className={styles.city}
@@ -28,7 +32,7 @@ export default function City({city}: CityModel) {
                             autoContrast
                             tt={'none'}
                         >
-                            {city.title}
+                            {city.name}
                         </Badge>
                     </Flex>
                 </BackgroundImage>

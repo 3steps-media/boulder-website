@@ -6,8 +6,21 @@ import RecentPosts from "@/components/sections/RecentPostsSection/RecentPosts";
 import type {Metadata} from "next";
 import styles from "./page.module.scss"
 import SampleData from "@/_data/sample-data";
-import {Post} from "@/types/models";
 
+type Post = {
+    id: number;
+    slug: string;
+    title: string;
+    content: string;
+    excerpt: string;
+    image: string;
+    date: string;
+    categories: {
+        id: number;
+        name: string;
+        slug: string;
+    }[];
+}
 
 const posts: Post[] = SampleData.posts;
 

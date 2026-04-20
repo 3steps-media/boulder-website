@@ -2,7 +2,7 @@ import {ActionIcon, AspectRatio, Card, Flex, Group, Image, Paper, Rating, Text, 
 import styles from "@/components/features/place/PlaceCard/PlaceCard.module.scss";
 import NextLink from "next/link";
 import NextImage from "next/image";
-import PlaceLocation from "@/components/features/place/PlaceLocation";
+import PlaceLocation from "@/domains/place/components/PlaceLocation";
 import {IconHeart, IconInfoSquareRounded} from "@tabler/icons-react";
 
 import {PlacePreviewModel} from "@/domains/place/types";
@@ -14,7 +14,7 @@ type PlacePreviewProps = {
 }
 
 export default function PlacePreview({place}: PlacePreviewProps) {
-
+    const location = placeUtils.getPrimaryCity(place.cities.nodes);
     const featuredImage = placeUtils.getFeaturedImageData(place, 'medium');
 
     return (
@@ -50,7 +50,7 @@ export default function PlacePreview({place}: PlacePreviewProps) {
                 justify={'space-between'}
                 align={'center'}
             >
-                <PlaceLocation location={place.cities.nodes[0]}/>
+                {location && <PlaceLocation location={location}/>}
 
                 <Paper bg={'yellow.0'} radius={'xl'} shadow={'none'} px={'16'} py={'8'}>
                     <Rating defaultValue={4.5} fractions={4} readOnly/>

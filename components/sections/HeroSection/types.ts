@@ -1,5 +1,4 @@
 import {StaticImageData} from "next/image";
-import {PostCategory} from "@/types/models";
 
 export interface BasicHeroProps {
     title: string;
@@ -15,3 +14,9 @@ export interface HeroBlogPostProps extends BasicHeroProps {
     date?: string;
     categories: PostCategory[];
 }
+
+export type PostCategory = {
+    id: number | string,
+    name: string,
+    slug: string
+};

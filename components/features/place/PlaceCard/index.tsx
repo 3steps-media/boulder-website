@@ -1,16 +1,20 @@
-import {Place} from "@/types/models";
 import {ActionIcon, AspectRatio, Button, Card, Flex, Group, Image, Paper, Rating, Text, Title} from "@mantine/core";
 import styles from './PlaceCard.module.scss';
 import NextLink from "next/link";
 import NextImage from "next/image";
 import {IconHeart, IconInfoSquareRounded} from "@tabler/icons-react";
-import PlaceLocation from "@/components/features/place/PlaceLocation";
+import PlaceLocation from "@/domains/place/components/PlaceLocation";
+import {PlaceDetailsModel} from "@/domains/place/types";
+import {placeUtils} from "@/domains/place/utils";
 
 type PlaceCardProps = {
-    place: Place
+    place: PlaceDetailsModel
 }
 
 export default function PlaceCard({place}: PlaceCardProps) {
+    const location = placeUtils.getPrimaryCity(place.cities.nodes);
+    const image = placeUtils.getFeaturedImageData(place, 'large');
+
     return (
         <Card
             className={styles.PlaceCard}
@@ -23,7 +27,7 @@ export default function PlaceCard({place}: PlaceCardProps) {
                 <NextLink href={`hallen/${place.slug}`}>
                     <AspectRatio ratio={1.16 / 1}>
                         <Image
-                            src={place.image}
+                            src={image.url}
                             alt={place.title}
                             width={268}
                             height={320}
@@ -44,7 +48,7 @@ export default function PlaceCard({place}: PlaceCardProps) {
                 justify={'space-between'}
                 align={'center'}
             >
-                <PlaceLocation location={place.location}/>
+                {location && <PlaceLocation location={location}/>}
 
                 <Paper bg={'yellow.0'} radius={'xl'} shadow={'none'} px={'16'} py={'8'}>
                     <Rating defaultValue={4.5} fractions={4} readOnly/>

@@ -1,7 +1,7 @@
 import NextLink from "next/link";
 import {Box, Flex, Text} from "@mantine/core";
 import {IconMapPin} from "@tabler/icons-react";
-import {CityModel} from "@/domains/place/types";
+import {CityModel} from "@/domains/city/types";
 import styles from "./PlaceLocation.module.css";
 
 type LocationInnerProps = {

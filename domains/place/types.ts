@@ -1,5 +1,6 @@
 import {CarouselSlideProps} from "@/components/sections/CarouselSection/types";
 import {PaymentMethodModel} from "@/domains/options/types";
+import {CityModel} from "@/domains/city/types";
 
 export type ThumbnailSizeModel = "thumbnail" | "medium" | "large";
 
@@ -99,19 +100,6 @@ export interface ACFModel {
         from: string | null;
         to: string | null;
     };
-}
-
-export interface CityModel {
-    databaseId: number;
-    id?: string;
-    name: string;
-    slug: string;
-}
-
-export interface CityCollectionProps {
-    cities: {
-        nodes: CityModel[];
-    }
 }
 
 export interface PlaceCollectionProps {

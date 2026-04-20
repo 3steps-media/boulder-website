@@ -1,7 +1,7 @@
 import HalleAchievements from "./achievements";
 import HalleComment from "./comment";
 import HalleContent from "./content";
-import HalleGallery from "./gallery";
+//import HalleGallery from "./gallery";
 import HalleLocation from "./location";
 import HalleMeta from "./meta";
 import HalleMainFeatures from "./main-features";
@@ -12,7 +12,7 @@ export {
     HalleAchievements,
     HalleComment,
     HalleContent,
-    HalleGallery,
+    //HalleGallery,
     HalleLocation,
     HalleMeta,
     HalleMainFeatures,

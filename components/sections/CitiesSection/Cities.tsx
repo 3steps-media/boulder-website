@@ -9,8 +9,14 @@ import {
 } from "@mantine/core";
 import clsx from "clsx";
 import City from "./City";
+import {CityModel} from "@/domains/city/types";
 
-import {CitiesProps} from "./types";
+type CitiesProps = {
+    heading: string;
+    text?: string;
+    lead?: string;
+    cities: CityModel[];
+}
 
 export default function Cities({heading, text, lead, cities}: CitiesProps) {
     return (

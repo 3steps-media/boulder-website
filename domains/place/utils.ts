@@ -1,6 +1,5 @@
 import {
     ACFModel,
-    CityModel,
     MediaModel,
     PlaceDetailsModel,
     PlacePreviewModel,
@@ -8,6 +7,7 @@ import {
 } from "@/domains/place/types";
 import {FEATURED_IMAGE_PLACEHOLDER} from "@/lib/constants";
 import {AmenityGroupModel, AmenityModel} from "@/domains/options/types";
+import {CityModel} from "@/domains/city/types";
 
 
 export const placeUtils = {
