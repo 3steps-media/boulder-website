@@ -21,8 +21,8 @@ export default function GalleryGrid({images, className}: GalleryGridProps) {
                         key={index}
                         item={image}
                         ratio={1}
-                        span={2}
-                        mediaSize='thumbnail'
+                        span={3}
+                        mediaSize='medium'
                         onClick={() => handleOpenGallery(images, index)}
                     />
                 ))}

@@ -15,6 +15,11 @@ export async function generateStaticParams() {
 
 export default async function Halle({params}: { params: { slug: string } }) {
     const {slug} = await params;
+
+    if (!slug) {
+        notFound()
+    }
+
     const [place, featured, grouped, paymentMethods] = await Promise.all([
         placeApi.loadPlaceDetailsBySlug(slug),
         getFeaturedAmenities(),
@@ -22,9 +27,6 @@ export default async function Halle({params}: { params: { slug: string } }) {
         getPaymentMethods()
     ]);
 
-    if (!place) {
-        notFound()
-    }
 
     return (
         <PlacePage
