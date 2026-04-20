@@ -1,5 +1,4 @@
-import {Button, Container, Flex, Stack, Title, Text} from "@mantine/core";
-import Link from "next/link";
+import {Container, Flex, Stack, Title, Text} from "@mantine/core";
 import {IconArrowRight} from '@tabler/icons-react'
 import {LinkButton} from "@/components/ui/LinkButton";
 
