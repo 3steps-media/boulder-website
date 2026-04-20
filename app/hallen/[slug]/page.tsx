@@ -8,7 +8,7 @@ import {getPaymentMethods} from "@/domains/options/selectors/getPaymentMethods";
 export async function generateStaticParams() {
     try {
         const places = await placeApi.loadPlaceSlugsCollection();
-        console.log('Generated slugs:', places.map(p => p.slug));
+        //console.log('Generated slugs:', places.map(p => p.slug));
 
         return places
             .filter((place) => !!place.slug)
